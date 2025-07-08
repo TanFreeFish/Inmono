@@ -3400,3 +3400,181 @@ Press CTRL+C to quit
 127.0.0.1 - - [08/Jul/2025 15:31:17] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 -
 [2025-07-08 03:31:17] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
 127.0.0.1 - - [08/Jul/2025 15:31:17] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 03:31:27] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/brainstorm.js HTTP/1.1" 304 -
+[2025-07-08 03:31:27] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:31:27] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:31:27] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:31:27] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/basic-languages/python/python.js
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 -
+[2025-07-08 03:31:28] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
+127.0.0.1 - - [08/Jul/2025 15:31:28] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 03:34:21] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 15:34:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/brainstorm.js HTTP/1.1" 304 -
+[2025-07-08 03:34:22] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js127.0.0.1 - - [08/Jul/2025 15:34:22] "
+GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:34:22] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:34:22] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:34:22] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:34:23] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [08/Jul/2025 15:34:23] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/review.js HTTP/1.1" 304 -
+[2025-07-08 03:34:24] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:34:24] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:34:24] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:34:24] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/basic-languages/python/python.js
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 -
+[2025-07-08 03:34:24] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
+127.0.0.1 - - [08/Jul/2025 15:34:24] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 03:39:18] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 15:39:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "[2025-07-08 03:39:19] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.jsGET /js/verify.js HTTP/1.1
+" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:39:19] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:39:19] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:39:19] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /stackframe.js
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /stackframe.js HTTP/1.1" 404 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/verify.js HTTP/1.1" 304 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /doc/stackframe.js
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /doc/stackframe.js HTTP/1.1" 200 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 03:39:20] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/basic-languages/python/python.js
+127.0.0.1 - - [08/Jul/2025 15:39:20] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 -
+[2025-07-08 03:39:21] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
+127.0.0.1 - - [08/Jul/2025 15:39:21] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 -

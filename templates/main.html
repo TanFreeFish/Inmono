@@ -103,8 +103,19 @@
                     <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                 </svg>
             </div>
+            <div id="editor_toolbar" style="display:flex;align-items:center;gap:10px;">
+                <label for="language_select">语言：</label>
+                <select id="language_select">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html">HTML</option>
+                </select>
+                <button id="run_code_btn">运行</button>
+                <button id="toggle_view_btn">切换到运行结果</button>
+            </div>
             <div id="editor_container">
                 <div id="code_editor" style="width:100%;height:300px;"></div>
+                <div id="run_output" style="display:none;width:100%;height:300px;border:1px solid #ccc;"></div>
                 <div id="main_container" contenteditable="true" data-gramm="false" spellcheck="false" autocomplete="off" class="review_mode_hidden"></div>
                 <div id="review_main_container" class="review_mode_visible"></div>
             </div>
@@ -260,6 +271,7 @@
         <script src="/js/jquery.min.js"></script>
         <script src="/js/highlighter.js"></script>
         <script src="/js/difflib.js"></script>        
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
         <script>
             var api_server = "/";
             var start_document = {{active_doc|safe}};
@@ -326,11 +338,87 @@
   require(['vs/editor/editor.main'], function () {
     window.editor = monaco.editor.create(document.getElementById('code_editor'), {
       value: '# 在这里写代码\n',
-      language: 'python', // 可改为 'javascript'、'markdown' 等
+      language: 'python', // 或 'javascript'，可动态切换
       theme: 'vs-dark',
       automaticLayout: true
     });
   });
+</script>
+<script>
+let isCodeView = true;
+let pyodideReadyPromise = null;
+let lastOutput = '';
+let currentLanguage = 'python';
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggle_view_btn');
+    const runBtn = document.getElementById('run_code_btn');
+    const langSelect = document.getElementById('language_select');
+    const codeEditorDiv = document.getElementById('code_editor');
+    const runOutputDiv = document.getElementById('run_output');
+
+    // 预加载 Pyodide
+    pyodideReadyPromise = loadPyodide();
+
+    // 语言切换
+    langSelect.addEventListener('change', function() {
+        currentLanguage = langSelect.value;
+        if(window.editor) {
+            monaco.editor.setModelLanguage(window.editor.getModel(), currentLanguage);
+        }
+    });
+
+    // 运行按钮
+    runBtn.addEventListener('click', async function() {
+        const code = window.editor.getValue();
+        const lang = langSelect.value;
+        runOutputDiv.style.display = 'block';
+        codeEditorDiv.style.display = 'none';
+        toggleBtn.textContent = '切换到代码编辑';
+        runOutputDiv.innerHTML = '';
+
+        if (lang === 'python') {
+            runOutputDiv.innerHTML = '<div style="color:#888">正在加载Python解释器...</div>';
+            const pyodide = await pyodideReadyPromise;
+            try {
+                let result = await pyodide.runPythonAsync(code);
+                runOutputDiv.innerHTML = `<pre>${result === undefined ? '' : result}</pre>`;
+                lastOutput = runOutputDiv.innerHTML;
+            } catch (e) {
+                runOutputDiv.innerHTML = `<pre style="color:red;">${e}</pre>`;
+                lastOutput = runOutputDiv.innerHTML;
+            }
+        } else {
+            // 运行 JS/HTML
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            runOutputDiv.appendChild(iframe);
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            doc.open();
+            doc.write(code);
+            doc.close();
+            lastOutput = runOutputDiv.innerHTML;
+        }
+        isCodeView = false;
+    });
+
+    // 切换视图按钮
+    toggleBtn.addEventListener('click', function() {
+        if (isCodeView) {
+            runOutputDiv.style.display = 'block';
+            codeEditorDiv.style.display = 'none';
+            toggleBtn.textContent = '切换到代码编辑';
+            runOutputDiv.innerHTML = lastOutput;
+        } else {
+            runOutputDiv.style.display = 'none';
+            codeEditorDiv.style.display = 'block';
+            toggleBtn.textContent = '切换到运行结果';
+        }
+        isCodeView = !isCodeView;
+    });
+});
 </script>
     </body>
 </html>
