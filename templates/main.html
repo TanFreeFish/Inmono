@@ -381,12 +381,24 @@ document.addEventListener('DOMContentLoaded', function() {
             runOutputDiv.innerHTML = '<div style="color:#888">正在加载Python解释器...</div>';
             const pyodide = await pyodideReadyPromise;
             try {
+                // 捕获print输出
+                let output = '';
+                let error = '';
+                pyodide.setStdout({batched: (s) => { output += s; }});
+                pyodide.setStderr({batched: (s) => { error += s; }});
                 let result = await pyodide.runPythonAsync(code);
-                runOutputDiv.innerHTML = `<pre>${result === undefined ? '' : result}</pre>`;
+                let resultStr = (result === undefined ? '' : result.toString());
+                runOutputDiv.innerHTML = `<pre>${output}${resultStr ? '\\n' + resultStr : ''}</pre>`;
+                if (error) {
+                    runOutputDiv.innerHTML += `<pre style="color:red;">${error}</pre>`;
+                }
                 lastOutput = runOutputDiv.innerHTML;
             } catch (e) {
                 runOutputDiv.innerHTML = `<pre style="color:red;">${e}</pre>`;
                 lastOutput = runOutputDiv.innerHTML;
+            } finally {
+                pyodide.setStdout({});
+                pyodide.setStderr({});
             }
         } else {
             // 运行 JS/HTML
