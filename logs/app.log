@@ -1,0 +1,983 @@
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-05 14:02:25] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /css/main.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/difflib.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/editor.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /css/intro.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/jquery.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/suggestions.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/conv.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/highlighter.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /css/spinner.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /css/ablation.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/markers.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/brainstorm.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/review.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/verify.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:25] "GET /js/shortcuts.js HTTP/1.1" 200 -
+[2025-07-05 14:02:28] [User UU686968ae3116716300fc6bcc] /new_doc
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /new_doc HTTP/1.1" 302 -
+[2025-07-05 14:02:28] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:02:28] [User UU686968ae3116716300fc6bcc] /favicon.ico
+127.0.0.1 - - [06/Jul/2025 02:02:28] "GET /favicon.ico HTTP/1.1" 404 -
+[2025-07-05 14:03:04] [User UU686968ae3116716300fc6bcc] /save_doc_state
+127.0.0.1 - - [06/Jul/2025 02:03:04] "POST /save_doc_state HTTP/1.1" 200 -
+[2025-07-05 14:04:04] [User UU686968ae3116716300fc6bcc] /save_doc_state
+127.0.0.1 - - [06/Jul/2025 02:04:04] "POST /save_doc_state HTTP/1.1" 200 -
+[2025-07-05 14:06:00] [User UU686968ae3116716300fc6bcc] /save_marker
+127.0.0.1 - - [06/Jul/2025 02:06:00] "POST /save_marker HTTP/1.1" 200 -
+[2025-07-05 14:06:02] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 02:06:02] "POST /change_marker_visibility HTTP/1.1" 200 -
+[2025-07-05 14:06:05] [User UU686968ae3116716300fc6bcc] /start_comment
+127.0.0.1 - - [06/Jul/2025 02:06:05] "POST /start_comment HTTP/1.1" 200 -
+[2025-07-05 14:06:15] [User UU686968ae3116716300fc6bcc] /start_comment
+127.0.0.1 - - [06/Jul/2025 02:06:15] "POST /start_comment HTTP/1.1" 200 -
+[2025-07-05 14:06:18] [User UU686968ae3116716300fc6bcc] /archive_comment
+127.0.0.1 - - [06/Jul/2025 02:06:18] "POST /archive_comment HTTP/1.1" 200 -
+[Doc id: user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd] [Chat message: 主角叫什么]
+[2025-07-05 14:06:53] [User UU686968ae3116716300fc6bcc] /new_doc
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /new_doc HTTP/1.1" 302 -
+[2025-07-05 14:06:53] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:53] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:06:55] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:55] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:06:57] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:57] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:06:58] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:06:58] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:07:03] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:03] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:07:10] [User UU686968ae3116716300fc6bcc] /save_doc_state
+127.0.0.1 - - [06/Jul/2025 02:07:10] "POST /save_doc_state HTTP/1.1" 200 -
+[2025-07-05 14:07:20] [User UU686968ae3116716300fc6bcc] /save_doc_state
+127.0.0.1 - - [06/Jul/2025 02:07:20] "POST /save_doc_state HTTP/1.1" 200 -
+[2025-07-05 14:07:20] [User UU686968ae3116716300fc6bcc] /new_doc
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /new_doc HTTP/1.1" 302 -
+[2025-07-05 14:07:20] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:20] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:07:22] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:22] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:07:23] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:07:23] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[Doc id: user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd] [Chat message: 主角叫什么]
+[2025-07-05 14:07:58] [User UU686968ae3116716300fc6bcc] /clear_chat
+127.0.0.1 - - [06/Jul/2025 02:07:59] "POST /clear_chat HTTP/1.1" 200 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-05 14:13:39] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [06/Jul/2025 02:13:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:40] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-05 14:13:43] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 02:13:43] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[Doc id: user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd] [Chat message: 主角是谁]
+127.0.0.1 - - [06/Jul/2025 02:20:22] "POST /send_chat HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 972, in request
+    response = self._client.send(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 36, in run_openai_query
+    response = client.chat.completions.create(model=model, messages=messages, timeout=timeout, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1087, in create
+    return self._post(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 990, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\app_inksync.py", line 392, in app_send_chat
+    response = engine.generate_chat_response(last_document, doc["conversation"], document_id=doc_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\model_recommender.py", line 69, in generate_chat_response
+    model_response = get_openai_json(messages, model=self.model_card, location="chat", document_id=document_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 73, in get_openai_json
+    total_response = run_openai_query(messages, model=model, is_json=True)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 41, in run_openai_query
+    raise Exception("Failed to get response from OpenAI")
+Exception: Failed to get response from OpenAI
+[2025-07-06 01:54:10] [User UU686968ae3116716300fc6bcc] /clear_chat
+127.0.0.1 - - [06/Jul/2025 13:54:10] "POST /clear_chat HTTP/1.1" 200 -
+[2025-07-06 01:54:36] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:36] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-06 01:54:37] [User UU686968ae3116716300fc6bcc] /delete_doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /delete_doc/user_UU686968ae3116716300fc6bcc_686969bd3116716300fc6bd3 HTTP/1.1" 302 -
+[2025-07-06 01:54:37] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:37] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-06 01:54:39] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:39] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-06 01:54:42] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 13:54:42] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-06 01:54:47] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 13:54:47] "POST /change_marker_visibility HTTP/1.1" 200 -
+[2025-07-06 01:54:48] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 13:54:48] "POST /change_marker_visibility HTTP/1.1" 200 -
+[2025-07-06 01:54:51] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 13:54:51] "POST /change_marker_visibility HTTP/1.1" 200 -
+[2025-07-06 01:54:52] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 13:54:52] "POST /change_marker_visibility HTTP/1.1" 200 -
+[2025-07-06 01:54:52] [User UU686968ae3116716300fc6bcc] /change_marker_visibility
+127.0.0.1 - - [06/Jul/2025 13:54:52] "POST /change_marker_visibility HTTP/1.1" 200 -
+[Doc id: user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd] [Message: 什么意思]
+127.0.0.1 - - [06/Jul/2025 14:01:21] "POST /send_comment_reply HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 972, in request
+    response = self._client.send(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 36, in run_openai_query
+    response = client.chat.completions.create(model=model, messages=messages, timeout=timeout, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1087, in create
+    return self._post(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 990, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\app_inksync.py", line 560, in app_send_comment_chat
+    response = engine.generate_comment_response(last_document, last_document, comment["conversation"], comment["selection_text"], comment["anchor_idx"], document_id=doc_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\model_recommender.py", line 195, in generate_comment_response
+    model_response = get_openai_json(messages, model=self.model_card, location="comment", document_id=document_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 73, in get_openai_json
+    total_response = run_openai_query(messages, model=model, is_json=True)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 41, in run_openai_query
+    raise Exception("Failed to get response from OpenAI")
+Exception: Failed to get response from OpenAI
+[2025-07-06 02:30:43] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jul/2025 14:30:43] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[Doc id: user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd] [Chat message: Who is the main character]
+127.0.0.1 - - [06/Jul/2025 15:47:46] "POST /send_chat HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 972, in request
+    response = self._client.send(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 36, in run_openai_query
+    response = client.chat.completions.create(model=model, messages=messages, timeout=timeout, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1087, in create
+    return self._post(
+    
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\openai\_base_client.py", line 990, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\B_DiagonAlley\00_Application\miniconda\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\app_inksync.py", line 392, in app_send_chat
+    response = engine.generate_chat_response(last_document, doc["conversation"], document_id=doc_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\model_recommender.py", line 69, in generate_chat_response
+    model_response = get_openai_json(messages, model=self.model_card, location="chat", document_id=document_id)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 73, in get_openai_json
+    total_response = run_openai_query(messages, model=model, is_json=True)
+  File "D:\A_MaraudersMap\03_Work\Computer\project\inksync-main\utils_openai.py", line 41, in run_openai_query
+    raise Exception("Failed to get response from OpenAI")
+Exception: Failed to get response from OpenAI
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 01:22:14] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:22:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:15] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:22:17] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:22:17] [User UU686968ae3116716300fc6bcc] /favicon.ico
+127.0.0.1 - - [08/Jul/2025 13:22:17] "GET /favicon.ico HTTP/1.1" 404 -
+[2025-07-08 01:22:21] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:21] "GET /js/shortcuts.js HTTP/1.1" 304 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 01:22:47] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/brainstorm.js HTTP/1.1[2025-07-08 01:22:47] [User UU686968ae3116716300fc6bcc] /static/monaco/loader.js" 304 -
+
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:47] "GET /static/monaco/loader.js HTTP/1.1" 404 -
+[2025-07-08 01:22:48] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [08/Jul/2025 13:22:48] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/verify.js HTTP/1.1[2025-07-08 01:22:49] [User UU686968ae3116716300fc6bcc] /static/monaco/loader.js" 304 -
+
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:49] "GET /static/monaco/loader.js HTTP/1.1" 404 -
+[2025-07-08 01:22:50] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /doc/user_UU686968ae3116716300fc6bcc_686968b43116716300fc6bcd HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/review.js HTTP/1.1" 304 -
+[2025-07-08 01:22:50] [User UU686968ae3116716300fc6bcc] /static/monaco/loader.js127.0.0.1 - - [08/Jul/2025 13:22:50] "
+GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:22:50] "GET /static/monaco/loader.js HTTP/1.1" 404 -
+127.0.0.1 - - [08/Jul/2025 13:23:29] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:23:29] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:23:29] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:23:29] "GET /css/spinner.css HTTP/1.1" 304 -
+[2025-07-08 01:23:29] [User UU686968ae3116716300fc6bcc] /.well-known/appspecific/com.chrome.devtools.json
+127.0.0.1 - - [08/Jul/2025 13:23:29] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+[2025-07-08 01:25:23] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:25:23] [User UU686968ae3116716300fc6bcc] /static/monaco/loader.js
+127.0.0.1 - - [08/Jul/2025 13:25:23] "GET /static/monaco/loader.js HTTP/1.1" 404 -
+[2025-07-08 01:25:57] [User UU686968ae3116716300fc6bcc] /static/monaco/loader.js
+127.0.0.1 - - [08/Jul/2025 13:25:57] "GET /static/monaco/loader.js HTTP/1.1" 404 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 01:28:28] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:28:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/conv.js HTTP/1.1" 304 -
+[2025-07-08 01:28:29] [User UU686968ae3116716300fc6bcc] /monaco/loader.js
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /monaco/loader.js HTTP/1.1" 404 -
+127.0.0.1 - - [08/Jul/2025 13:28:29] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:28:31] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/brainstorm.js HTTP/1.1" 304 -
+[2025-07-08 01:28:31] [User UU686968ae3116716300fc6bcc] /monaco/loader.js
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /js/shortcuts.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:31] "GET /monaco/loader.js HTTP/1.1" 404 -
+127.0.0.1 - - [08/Jul/2025 13:28:37] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:37] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:37] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:28:37] "GET /css/spinner.css HTTP/1.1" 304 -
+[2025-07-08 01:28:37] [User UU686968ae3116716300fc6bcc] /.well-known/appspecific/com.chrome.devtools.json
+127.0.0.1 - - [08/Jul/2025 13:28:37] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 01:31:22] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/suggestions.js HTTP/1.1" 304 -
+[2025-07-08 01:31:22] [User UU686968ae3116716300fc6bcc] /monaco/vs/loader.js127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/markers.js HTTP/1.1
+" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /monaco/vs/loader.js HTTP/1.1" 404 -
+127.0.0.1 - - [08/Jul/2025 13:31:22] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:31:24] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "[2025-07-08 01:31:24] [User UU686968ae3116716300fc6bcc] /monaco/vs/loader.jsGET /js/review.js HTTP/1.1
+" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /monaco/vs/loader.js HTTP/1.1" 404 -
+127.0.0.1 - - [08/Jul/2025 13:31:24] "GET /js/shortcuts.js HTTP/1.1" 304 -
+ * Serving Flask app 'app_inksync'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-433-360
+[2025-07-08 01:33:19] [User UU686968ae3116716300fc6bcc] /
+127.0.0.1 - - [08/Jul/2025 13:33:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "[2025-07-08 01:33:20] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.jsGET /css/main.css HTTP/1.1
+" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /static/monaco/vs/loader.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:33:20] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:33:21] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 13:33:21] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 200 -
+[2025-07-08 01:33:21] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 13:33:21] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 200 -
+[2025-07-08 01:33:21] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/basic-languages/python/python.js
+127.0.0.1 - - [08/Jul/2025 13:33:21] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 200 -
+[2025-07-08 01:33:21] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
+127.0.0.1 - - [08/Jul/2025 13:33:21] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 200 -
+[2025-07-08 01:36:16] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf
+127.0.0.1 - - [08/Jul/2025 13:36:16] "GET /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf HTTP/1.1" 200 -
+[2025-07-08 01:36:25] [User UU686968ae3116716300fc6bcc] /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /doc/user_UU686968ae3116716300fc6bcc_686969d83116716300fc6bd5 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /css/main.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /css/intro.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /css/ablation.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /css/spinner.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/jquery.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/highlighter.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/difflib.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/editor.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/suggestions.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/conv.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/markers.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/brainstorm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/review.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/verify.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /js/shortcuts.js HTTP/1.1" 304 -
+[2025-07-08 01:36:25] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/loader.js
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /static/monaco/vs/loader.js HTTP/1.1" 304 -
+[2025-07-08 01:36:25] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.js
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 -
+[2025-07-08 01:36:25] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/editor/editor.main.css
+127.0.0.1 - - [08/Jul/2025 13:36:25] "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 -
+[2025-07-08 01:36:25] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/basic-languages/python/python.js
+127.0.0.1 - - [08/Jul/2025 13:36:26] "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 -
+[2025-07-08 01:36:26] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/worker/workerMain.js
+127.0.0.1 - - [08/Jul/2025 13:36:26] "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 -
+[2025-07-08 01:36:38] [User UU686968ae3116716300fc6bcc] /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf
+127.0.0.1 - - [08/Jul/2025 13:36:38] "GET /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf HTTP/1.1" 304 -
