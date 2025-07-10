@@ -1,8 +1,8 @@
-flask
-flask-cors
-gunicorn
+fastapi
+uvicorn
+jinja2
+python-multipart
 pytz
 bson
 colorama
 openai
-bson

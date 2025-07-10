@@ -38,3 +38,6 @@ class DoublePrint(object):
 
     def flush(self):
         self.file.flush()
+
+    def isatty(self):
+        return False

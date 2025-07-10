@@ -1,6 +1,10 @@
-# To launch: `gunicorn --timeout 60 --bind unix:/export/home/inksync/app.sock -m 777 -w 5 wsgiis:app --reload`
+# To launch: `uvicorn app_inksync:app --reload`
 from app_params import model_card, NO_LEFT_MENU, ENABLE_CHAT, ENABLE_MARKERS, ENABLE_LOCAL, ENABLE_WARN_VERIFY_AUDIT
-from flask import Flask, request, render_template, send_from_directory, redirect
+from fastapi import FastAPI, Request, Form, Depends, Response, status
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
 from utils_inksync import create_starter_document, get_user_documents
 from model_recommender import RecommendationEngine
 from utils_trace import run_suggestion_tracing
@@ -8,97 +12,80 @@ import utils_misc, json, os, time, pytz
 from bson.objectid import ObjectId
 from collections import Counter
 from datetime import datetime
-from flask_cors import CORS
 
-app = Flask(__name__)
-app.debug = True
-app.config["TEMPLATES_AUTO_RELOAD"] = True
-CORS(app)
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.mount("/js", StaticFiles(directory="static/js"), name="js")
+app.mount("/css", StaticFiles(directory="static/css"), name="css")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
 utils_misc.DoublePrint("logs/app.log")
 API_LOG_FILE = "logs/api_log.jsonl"
-
 engine = RecommendationEngine(model_card=model_card)
 
-
-@app.before_request
-def set_user_id():
+# 用户ID和日志处理
+@app.middleware("http")
+async def set_user_id(request: Request, call_next):
     user_id = request.cookies.get('inksync_uid')
     if user_id is not None and not user_id.startswith("UU"):
         user_id = None
-    request.start_ts = time.time()
-    request.skip_log = False
-    request.doc_id = -1
-
+    request.state.start_ts = time.time()
+    request.state.skip_log = False
+    request.state.doc_id = -1
     if user_id is None:
-        # Generate a unique ID using UUID4
         new_user_id = "UU%s" % str(ObjectId())
         with open("data/users.jsonl", "a") as f:
             f.write(json.dumps({"id": new_user_id, "creation_timestamp": datetime.now().isoformat()}) + "\n")
-        request.user_id = new_user_id
+        request.state.user_id = new_user_id
+        response = await call_next(request)
+        response.set_cookie('inksync_uid', new_user_id, max_age=60 * 60 * 24 * 90)
+        return response
     else:
-        # If the user_id cookie is already set, store it in request.user_id
-        request.user_id = user_id
+        request.state.user_id = user_id
+        response = await call_next(request)
+        response.set_cookie('inksync_uid', user_id, max_age=60 * 60 * 24 * 90)
+        return response
 
 
 # Set the cookie in the after_request hook
-@app.after_request
-def set_cookie(response):
-    # Add entry to API log
-    if not request.skip_log:
-        response.set_cookie('inksync_uid', request.user_id, max_age=60 * 60 * 24 * 90)
-        entry = {"timestamp": datetime.now().isoformat(), "user_id": request.user_id, "endpoint": request.path, "duration": time.time() - request.start_ts, "doc_id": request.doc_id}
-        print("[%s] [User %s] %s" % (datetime.now(tz=pytz.timezone('America/New_York')).strftime("%Y-%m-%d %H:%M:%S"), request.user_id, request.path))
+@app.middleware("http")
+async def log_request(request: Request, call_next):
+    response = await call_next(request)
+    if not request.state.skip_log:
+        print("[%s] [User %s] %s" % (datetime.now(tz=pytz.timezone('America/New_York')).strftime("%Y-%m-%d %H:%M:%S"), request.state.user_id, request.url.path))
+        entry = {"timestamp": datetime.now().isoformat(), "user_id": request.state.user_id, "endpoint": request.url.path, "duration": time.time() - request.state.start_ts, "doc_id": request.state.doc_id}
         with open(API_LOG_FILE, "a") as f:
             f.write(json.dumps(entry) + "\n")
     return response
 
 
-@app.route('/js/<path:path>')
-def send_JS_static(path):
-    request.skip_log = True
-    return send_from_directory('static/js/', path)
+# 主页和文档页面
+@app.get("/", response_class=HTMLResponse)
+async def app_inksync_homepage(request: Request, no_menu: str = "false"):
+    documents = get_user_documents(request.state.user_id)
+    no_menu_class = "no_menu" if (no_menu != "false" or NO_LEFT_MENU) else ""
+    return templates.TemplateResponse("main.html", {"request": request, "documents": documents, "active_doc": {}, "homepage": True, "no_menu_class": no_menu_class, "hidden_systems_class": ""})
 
-@app.route('/css/<path:path>')
-def send_css_static(path):
-    request.skip_log = True
-    return send_from_directory('static/css/', path)
-
-
-@app.route("/new_doc")
-def app_new_doc():
-    new_doc = create_starter_document(request.user_id, initial_text="")
-    doc_id = new_doc["id"]
-    request.doc_id = doc_id
-    doc_id = new_doc["id"]
-    with open("documents/%s.json" % doc_id, "w") as f:
-        json.dump(new_doc, f, indent=4)
-    return redirect("/doc/%s" % doc_id)
-
-
-@app.route("/")
-def app_inksync_homepage():
-    documents = get_user_documents(request.user_id)
-    no_menu_class = "no_menu" if (request.args.get("no_menu", "false") != "false" or NO_LEFT_MENU) else ""
-    return render_template("main.html", documents=documents, active_doc={}, homepage=True, no_menu_class=no_menu_class, hidden_systems_class="")
-
-
-@app.route("/doc/<doc_id>")
-@app.route("/doc/<doc_id>/review")
-def app_inksync_docpage(doc_id=None):
-    no_menu_class = "no_menu" if (request.args.get("no_menu", "false") != "false" or NO_LEFT_MENU) else ""
-
-    documents = get_user_documents(request.user_id)
+@app.get("/doc/{doc_id}", response_class=HTMLResponse)
+@app.get("/doc/{doc_id}/review", response_class=HTMLResponse)
+async def app_inksync_docpage(request: Request, doc_id: str, no_menu: str = "false"):
+    no_menu_class = "no_menu" if (no_menu != "false" or NO_LEFT_MENU) else ""
+    documents = get_user_documents(request.state.user_id)
     id2doc = {d["id"]: d for d in documents}
-
     active_doc = {}
     if len(documents) > 0:
         if doc_id is None or doc_id not in id2doc:
             doc_id = documents[0]["id"]
-            request.doc_id = doc_id
-
+            request.state.doc_id = doc_id
         active_doc = id2doc[doc_id]
-
     hidden_systems_class = ""
     if not ENABLE_CHAT:
         hidden_systems_class += " no_chat"
@@ -108,13 +95,23 @@ def app_inksync_docpage(doc_id=None):
         hidden_systems_class += " no_local"
     if not ENABLE_WARN_VERIFY_AUDIT:
         hidden_systems_class += " no_verify"
-    return render_template("main.html", documents=documents, active_doc=active_doc, no_menu_class=no_menu_class, hidden_systems_class=hidden_systems_class)
+    return templates.TemplateResponse("main.html", {"request": request, "documents": documents, "active_doc": active_doc, "no_menu_class": no_menu_class, "hidden_systems_class": hidden_systems_class})
 
 
-@app.route("/save_document_title", methods=["POST"])
-def app_save_document_title():
+@app.post("/new_doc", response_class=RedirectResponse)
+async def app_new_doc(request: Request):
+    new_doc = create_starter_document(request.state.user_id, initial_text="")
+    doc_id = new_doc["id"]
+    request.state.doc_id = doc_id
+    with open("documents/%s.json" % doc_id, "w") as f:
+        json.dump(new_doc, f, indent=4)
+    return RedirectResponse(url=f"/doc/{doc_id}")
+
+
+@app.post("/save_document_title", response_class=JSONResponse)
+async def app_save_document_title(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     new_title = request.form["new_title"]
 
     if os.path.exists("documents/%s.json" % doc_id):
@@ -124,13 +121,13 @@ def app_save_document_title():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-    return {"success": True}
+    return JSONResponse(content={"success": True})
 
 
-@app.route("/change_view_mode", methods=["POST"])
-def app_change_view_mode():
+@app.post("/change_view_mode", response_class=JSONResponse)
+async def app_change_view_mode(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     view_mode = request.form["view_mode"]
     if view_mode not in ["Hover", "Inline"]:
         view_mode = "Hover"
@@ -144,14 +141,14 @@ def app_change_view_mode():
         doc["view_mode_history"].append({"timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "view_mode": view_mode})
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
-        return {"success": True}
-    return {"success": False}
+        return JSONResponse(content={"success": True})
+    return JSONResponse(content={"success": False})
 
 
-@app.route("/change_markers_disabled", methods=["POST"])
-def app_change_markers_disabled():
+@app.post("/change_markers_disabled", response_class=JSONResponse)
+async def app_change_markers_disabled(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     markers_disabled = request.form["markers_disabled"]
     if markers_disabled not in ["0", "1"]:
         markers_disabled = "0"
@@ -162,30 +159,30 @@ def app_change_markers_disabled():
         doc["markers_disabled"] = markers_disabled
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
-        return {"success": True}
-    return {"success": False}
+        return JSONResponse(content={"success": True})
+    return JSONResponse(content={"success": False})
 
 
-@app.route("/delete_doc/<doc_id>")
-def app_delete_doc(doc_id):
-    request.doc_id = doc_id
+@app.post("/delete_doc/{doc_id}", response_class=RedirectResponse)
+async def app_delete_doc(request: Request, doc_id: str):
+    request.state.doc_id = doc_id
     if os.path.exists("documents/%s.json" % doc_id):
         # check if we're the owner_id
         with open("documents/%s.json" % doc_id) as f:
             doc = json.load(f)
-            if doc.get("owner_user_id", -1) != request.user_id:
-                return redirect("/")
+            if doc.get("owner_user_id", -1) != request.state.user_id:
+                return RedirectResponse(url="/")
 
         # remove file
         os.remove("documents/%s.json" % doc_id)
         
-    return redirect("/")
+    return RedirectResponse(url="/")
 
 
-@app.route("/save_marker", methods=["POST"])
-def app_save_marker():
+@app.post("/save_marker", response_class=JSONResponse)
+async def app_save_marker(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     marker = json.loads(request.form["marker"])
 
     if os.path.exists("documents/%s.json" % doc_id):
@@ -211,14 +208,14 @@ def app_save_marker():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "markers": doc["markers"]}
-    return {"success": False}
+        return JSONResponse(content={"success": True, "markers": doc["markers"]})
+    return JSONResponse(content={"success": False})
 
 
-@app.route("/delete_marker", methods=["POST"])
-def app_delete_marker():
+@app.post("/delete_marker", response_class=JSONResponse)
+async def app_delete_marker(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     marker_id = request.form["marker_id"]
 
     if os.path.exists("documents/%s.json" % doc_id):
@@ -231,14 +228,14 @@ def app_delete_marker():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "markers": doc["markers"]}
-    return {"success": False}
+        return JSONResponse(content={"success": True, "markers": doc["markers"]})
+    return JSONResponse(content={"success": False})
 
 
-@app.route("/change_marker_visibility", methods=["POST"])
-def app_change_marker_visibility():
+@app.post("/change_marker_visibility", response_class=JSONResponse)
+async def app_change_marker_visibility(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     marker_ids = request.form["marker_ids"].split(",")
     new_visible = request.form["visible"]
 
@@ -252,14 +249,14 @@ def app_change_marker_visibility():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True}
-    return {"success": False}
+        return JSONResponse(content={"success": True})
+    return JSONResponse(content={"success": False})
 
 
-@app.route("/save_doc_state", methods=["POST"])
-def app_save_doc_state():
+@app.post("/save_doc_state", response_class=JSONResponse)
+async def app_save_doc_state(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     new_text = request.form["new_text"]
     user_rejected_suggestion_ids = json.loads(request.form["user_rejected_suggestion_ids"])
     user_autodel_suggestion_ids = json.loads(request.form["user_autodel_suggestion_ids"])
@@ -268,7 +265,7 @@ def app_save_doc_state():
     active_comments = json.loads(request.form["current_comments"])
 
     if not os.path.exists("documents/%s.json" % doc_id):
-        return {"success": False}
+        return JSONResponse(content={"success": False})
 
     with open("documents/%s.json" % doc_id, "r") as f:
         doc = json.load(f)
@@ -328,15 +325,15 @@ def app_save_doc_state():
         json.dump(doc, f, indent=4)
         f.flush()
         f.close()
-    return {"success": True}
+    return JSONResponse(content={"success": True})
 
 
-@app.route("/get_markers_suggestions", methods=["POST"])
-def app_get_markers_suggestions():
+@app.post("/get_markers_suggestions", response_class=JSONResponse)
+async def app_get_markers_suggestions(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     if not os.path.exists("documents/%s.json" % doc_id):
-        return {"suggestions": []}
+        return JSONResponse(content={"suggestions": []})
 
     with open("documents/%s.json" % doc_id, "r") as f:
         doc = json.load(f)
@@ -363,14 +360,14 @@ def app_get_markers_suggestions():
 
     with open("documents/%s.json" % doc_id, "w") as f:
         json.dump(doc, f, indent=4)
-    return {"suggestions": active_suggestions}
+    return JSONResponse(content={"suggestions": active_suggestions})
 
 
-@app.route("/send_chat", methods=["POST"])
-def app_send_chat():
+@app.post("/send_chat", response_class=JSONResponse)
+async def app_send_chat(request: Request):
     doc_id = request.form["doc_id"]
-    user_id = request.user_id
-    request.doc_id = doc_id
+    user_id = request.state.user_id
+    request.state.doc_id = doc_id
     message = request.form["message"]
     print("[Doc id: %s] [Chat message: %s]" % (doc_id, message))
 
@@ -403,15 +400,15 @@ def app_send_chat():
 
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
-        return {"success": True, "conversation": doc["conversation"], "suggestions": active_suggestions}
+        return JSONResponse(content={"success": True, "conversation": doc["conversation"], "suggestions": active_suggestions})
     else:
-        return {"success": False}
+        return JSONResponse(content={"success": False})
 
 
-@app.route("/clear_chat", methods=["POST"])
-def app_clear_chat():
+@app.post("/clear_chat", response_class=JSONResponse)
+async def app_clear_chat(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
 
     if os.path.exists("documents/%s.json" % doc_id):
         with open("documents/%s.json" % doc_id) as f:
@@ -431,15 +428,15 @@ def app_clear_chat():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "conversation": doc["conversation"]}
+        return JSONResponse(content={"success": True, "conversation": doc["conversation"]})
     else:
-        return {"success": False}
+        return JSONResponse(content={"success": False})
 
 
-@app.route("/retry_chat", methods=["POST"])
-def app_retry_chat():
+@app.post("/retry_chat", response_class=JSONResponse)
+async def app_retry_chat(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
 
     if os.path.exists("documents/%s.json" % doc_id):
         with open("documents/%s.json" % doc_id) as f:
@@ -469,15 +466,15 @@ def app_retry_chat():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "conversation": doc["conversation"], "suggestions": active_suggestions}
+        return JSONResponse(content={"success": True, "conversation": doc["conversation"], "suggestions": active_suggestions})
     else:
-        return {"success": False}
+        return JSONResponse(content={"success": False})
 
 
-@app.route("/start_brainstorm", methods=["POST"])
-def app_start_brainstorm():
+@app.post("/start_brainstorm", response_class=JSONResponse)
+async def app_start_brainstorm(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     cursor_line_index = int(request.form["cursor_line_index"])
     cursor_position = int(request.form["cursor_position"])
     selection_text = request.form["selection_text"]
@@ -503,14 +500,14 @@ def app_start_brainstorm():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"brainstorm_suggestions": suggestions}
-    return {"brainstorm_suggestions": []}
+        return JSONResponse(content={"brainstorm_suggestions": suggestions})
+    return JSONResponse(content={"brainstorm_suggestions": []})
 
 
-@app.route("/start_comment", methods=["POST"])
-def app_start_comment():
+@app.post("/start_comment", response_class=JSONResponse)
+async def app_start_comment(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     anchor_idx = int(request.form["anchor_idx"])
     selection_text = request.form["selection_text"]
 
@@ -531,15 +528,15 @@ def app_start_comment():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"comments": doc["comments"], "active_comment_id": active_comment_id}
-    return {"comments": [], "active_comment_id": ""}
+        return JSONResponse(content={"comments": doc["comments"], "active_comment_id": active_comment_id})
+    return JSONResponse(content={"comments": [], "active_comment_id": ""})
 
 
-@app.route("/send_comment_reply", methods=["POST"])
-def app_send_comment_chat():
+@app.post("/send_comment_reply", response_class=JSONResponse)
+async def app_send_comment_chat(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
-    user_id = request.user_id
+    request.state.doc_id = doc_id
+    user_id = request.state.user_id
     comment_id = request.form["comment_id"]
     message = request.form["message"]
 
@@ -551,7 +548,7 @@ def app_send_comment_chat():
 
         comments = [c for c in doc["comments"] if c["id"] == comment_id]
         if len(comments) == 0:
-            return {"comments": doc["comment"]}
+            return JSONResponse(content={"comments": doc["comment"]})
 
         comment = comments[0]
         comment["conversation"].append({"id": str(ObjectId()), "sender": "user", "message": message, "timestamp": datetime.now().isoformat()})
@@ -578,15 +575,15 @@ def app_send_comment_chat():
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "comments": doc["comments"], "suggestions": new_suggestions}
+        return JSONResponse(content={"success": True, "comments": doc["comments"], "suggestions": new_suggestions})
 
-    return {"success": False, "comments": [], "suggestions": []}
+    return JSONResponse(content={"success": False, "comments": [], "suggestions": []})
 
 
-@app.route("/archive_comment", methods=["POST"])
-def app_archive_comment():
+@app.post("/archive_comment", response_class=JSONResponse)
+async def app_archive_comment(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     comment_id = request.form["comment_id"]
 
     if os.path.exists("documents/%s.json" % doc_id):
@@ -605,13 +602,13 @@ def app_archive_comment():
             json.dump(doc, f, indent=4)
 
         new_suggestions = [sug for sug in doc["suggestions"] if "action" not in sug]
-        return {"comments": doc["comments"], "suggestions": new_suggestions}
-    return {"comments": []}
+        return JSONResponse(content={"comments": doc["comments"], "suggestions": new_suggestions})
+    return JSONResponse(content={"comments": []})
 
 
-@app.route("/verify_suggestion/<doc_id>/<suggestion_id>", methods=["POST"])
-def app_verify_suggestion(doc_id, suggestion_id):
-    request.doc_id = doc_id
+@app.post("/verify_suggestion/{doc_id}/{suggestion_id}", response_class=JSONResponse)
+async def app_verify_suggestion(request: Request, doc_id: str, suggestion_id: str):
+    request.state.doc_id = doc_id
     if os.path.exists("documents/%s.json" % doc_id):
         with open("documents/%s.json" % doc_id) as f:
             doc = json.load(f)
@@ -626,13 +623,13 @@ def app_verify_suggestion(doc_id, suggestion_id):
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "suggestion": sug}
-    return {"success": False, "suggestion": {}}
+        return JSONResponse(content={"success": True, "suggestion": sug})
+    return JSONResponse(content={"success": False, "suggestion": {}})
 
 
-@app.route("/verify_suggestion/<doc_id>/<suggestion_id>/<verification_query_id>", methods=["POST", "GET"])
-def app_verify_suggestion_query(doc_id, suggestion_id, verification_query_id):
-    request.doc_id = doc_id
+@app.get("/verify_suggestion/{doc_id}/{suggestion_id}/{verification_query_id}", response_class=RedirectResponse)
+async def app_verify_suggestion_query(request: Request, doc_id: str, suggestion_id: str, verification_query_id: str):
+    request.state.doc_id = doc_id
     if os.path.exists("documents/%s.json" % doc_id):
         with open("documents/%s.json" % doc_id) as f:
             doc = json.load(f)
@@ -644,15 +641,15 @@ def app_verify_suggestion_query(doc_id, suggestion_id, verification_query_id):
                     q["visited"] = "1"
                     with open("documents/%s.json" % doc_id, "w") as f:
                         json.dump(doc, f, indent=4)
-                    return redirect("https://www.google.com/search?q=%s" % q["query"]) # Redirect to Google search with query q["query"]
+                    return RedirectResponse(url=f"https://www.google.com/search?q=%s" % q["query"]) # Redirect to Google search with query q["query"]
 
-    return {"success": False, "suggestion": {}}
+    return JSONResponse(content={"success": False, "suggestion": {}})
 
 
-@app.route("/mark_verification_result", methods=["POST"])
-def app_mark_verification_result():
+@app.post("/mark_verification_result", response_class=JSONResponse)
+async def app_mark_verification_result(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     sugg_id = request.form["sugg_id"]
     result = request.form["result"]
     if result not in ["verified", "incorrect", "not_sure"]:
@@ -665,19 +662,19 @@ def app_mark_verification_result():
         if len(sug) > 0:
             sug = sug[0]
             sug["verif_result"] = result
-            print("[User ID: %s] [Suggestion Is Accurate: %s] [Verif Result: %s]" % (request.user_id, sug.get("is_inaccurate", "-1"), result))
+            print("[User ID: %s] [Suggestion Is Accurate: %s] [Verif Result: %s]" % (request.state.user_id, sug.get("is_inaccurate", "-1"), result))
 
         with open("documents/%s.json" % doc_id, "w") as f:
             json.dump(doc, f, indent=4)
 
-        return {"success": True, "suggestion": sug}
-    return {"success": False, "suggestion": {}}
+        return JSONResponse(content={"success": True, "suggestion": sug})
+    return JSONResponse(content={"success": False, "suggestion": {}})
 
 
-@app.route("/get_review_doc", methods=["POST"])
-def app_get_review_doc():
+@app.post("/get_review_doc", response_class=JSONResponse)
+async def app_get_review_doc(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     if os.path.exists("documents/%s.json" % doc_id):
         with open("documents/%s.json" % doc_id) as f:
             doc = json.load(f)
@@ -691,23 +688,23 @@ def app_get_review_doc():
         sug_counts = Counter([t["suggestion_id"] for t in tracks])
         suggestions = sorted(suggestions, key=lambda x: sug_counts[x["id"]], reverse=True)
         final_version = doc["document_history"][-1]["text"]
-        return {"review_doc": {"suggestions": suggestions, "tracks": tracks, "final_version": final_version.rstrip()}}
-    return {"review_doc": []}
+        return JSONResponse(content={"review_doc": {"suggestions": suggestions, "tracks": tracks, "final_version": final_version.rstrip()}})
+    return JSONResponse(content={"review_doc": []})
 
 
-@app.route("/interpret_shortcut", methods=["POST"])
-def app_interpret_shortcut():
+@app.post("/interpret_shortcut", response_class=JSONResponse)
+async def app_interpret_shortcut(request: Request):
     doc_id = request.form["doc_id"]
-    request.doc_id = doc_id
+    request.state.doc_id = doc_id
     shortcut_query = request.form["query"]
     if os.path.exists("documents/%s.json" % doc_id):
 
         with open("documents/%s.json" % doc_id, "r") as f:
             doc = json.load(f)
         if doc is None:
-            return {"success": False}
+            return JSONResponse(content={"success": False})
         latest_text = doc["document_history"][-1]["text"]
 
         response = engine.generate_shortcut_interpretation(latest_text, shortcut_query, document_id=doc_id)
-        return {"success": True, "response": response}
-    return {"success": False}
+        return JSONResponse(content={"success": True, "response": response})
+    return JSONResponse(content={"success": False})
