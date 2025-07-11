@@ -1,0 +1,52 @@
+{
+    "id": "user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12",
+    "owner_user_id": "UU6870a99c0023f749e819e79c",
+    "name": "New Document",
+    "document_history": [
+        {
+            "text": "",
+            "timestamp": "2025-07-11T16:35:24.798530",
+            "suggestion_ids": []
+        }
+    ],
+    "suggestions": [],
+    "markers": [
+        {
+            "id": "6870ccc70023f75bb0216e0a",
+            "name": "Typos",
+            "strike_color": "#E31E3E",
+            "strike_style": "dashed",
+            "description": "Suggest any edits related to spelling, punctuation, grammar, or capitalization.",
+            "visible": "visible"
+        },
+        {
+            "id": "6870ccc70023f75bb0216e0b",
+            "name": "Professional",
+            "strike_color": "#e3861c",
+            "strike_style": "solid",
+            "description": "Spot words or phrases that are too informal, and suggest improvements to sound more professional.",
+            "visible": "visible"
+        },
+        {
+            "id": "6870ccc70023f75bb0216e0c",
+            "name": "Confidence",
+            "strike_color": "#1ca7e3",
+            "strike_style": "solid",
+            "description": "If there's a part that doesn't sound confident, help improve it.",
+            "visible": "visible"
+        }
+    ],
+    "conversation": [
+        {
+            "id": "6870cccc0023f75bb0216e13",
+            "sender": "assistant",
+            "message": "Don't hesistate get help in the chat.",
+            "timestamp": "2025-07-11T16:35:24.798530"
+        }
+    ],
+    "brainstorms": [],
+    "comments": [],
+    "view_mode": "Inline",
+    "markers_disabled": "0",
+    "view_mode_history": []
+}

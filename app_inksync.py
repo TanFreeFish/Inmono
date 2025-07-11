@@ -98,12 +98,12 @@ async def app_inksync_docpage(request: Request, doc_id: str, no_menu: str = "fal
     return templates.TemplateResponse("main.html", {"request": request, "documents": documents, "active_doc": active_doc, "no_menu_class": no_menu_class, "hidden_systems_class": hidden_systems_class})
 
 
-@app.post("/new_doc", response_class=RedirectResponse)
+@app.api_route("/new_doc", methods=["GET", "POST"], response_class=RedirectResponse)
 async def app_new_doc(request: Request):
     new_doc = create_starter_document(request.state.user_id, initial_text="")
     doc_id = new_doc["id"]
     request.state.doc_id = doc_id
-    with open("documents/%s.json" % doc_id, "w") as f:
+    with open(f"documents/{doc_id}.json", "w") as f:
         json.dump(new_doc, f, indent=4)
     return RedirectResponse(url=f"/doc/{doc_id}")
 
