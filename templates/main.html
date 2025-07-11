@@ -112,6 +112,7 @@
                 </select>
                 <button id="run_code_btn">运行</button>
                 <button id="toggle_view_btn">切换到运行结果</button>
+                <button id="docs_btn">文档</button>
             </div>
             <div id="editor_container">
                 <div id="code_editor" style="width:100%;height:300px;"></div>
@@ -356,6 +357,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const langSelect = document.getElementById('language_select');
     const codeEditorDiv = document.getElementById('code_editor');
     const runOutputDiv = document.getElementById('run_output');
+    const docsBtn = document.getElementById('docs_btn');
+    const docsModalOverlay = document.getElementById('docs_modal_overlay');
+    const closeDocsModal = document.getElementById('close_docs_modal');
 
     // 预加载 Pyodide
     pyodideReadyPromise = loadPyodide();
@@ -430,7 +434,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         isCodeView = !isCodeView;
     });
+
+    docsBtn.addEventListener('click', function() {
+        docsModalOverlay.style.display = 'block';
+    });
+    closeDocsModal.addEventListener('click', function() {
+        docsModalOverlay.style.display = 'none';
+    });
+    docsModalOverlay.addEventListener('click', function(e) {
+        if (e.target === docsModalOverlay) docsModalOverlay.style.display = 'none';
+    });
 });
 </script>
     </body>
+    <!-- 文档弹窗 Modal -->
+    <div id="docs_modal_overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:9999;">
+      <div id="docs_modal" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;width:80vw;height:80vh;box-shadow:0 2px 16px #0008;border-radius:8px;display:flex;flex-direction:column;">
+        <div style="text-align:right;padding:8px;">
+          <button id="close_docs_modal" style="font-size:20px;">关闭</button>
+        </div>
+        <iframe id="docs_iframe" src="/static/docs/index.html" style="flex:1;width:100%;border:none;"></iframe>
+      </div>
+    </div>
 </html>

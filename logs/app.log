@@ -4516,3 +4516,194 @@ INFO:     Started reloader process [34932] using StatReload
 INFO:     Started server process [19324]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['C:\\Users\\20896\\Inmono']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [23544] using StatReload
+INFO:     Started server process [21460]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[2025-07-11 04:29:42] [User UU6870cb760023f753d4daa255] /
+INFO:     127.0.0.1:59715 - "GET / HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /
+INFO:     127.0.0.1:59842 - "GET / HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /css/main.css
+INFO:     127.0.0.1:59842 - "GET /css/main.css HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /css/intro.css
+INFO:     127.0.0.1:59843 - "GET /css/intro.css HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /css/ablation.css
+INFO:     127.0.0.1:59849 - "GET /css/ablation.css HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /css/spinner.css
+INFO:     127.0.0.1:59842 - "GET /css/spinner.css HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/jquery.min.js
+INFO:     127.0.0.1:59843 - "GET /js/jquery.min.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/highlighter.js
+INFO:     127.0.0.1:59849 - "GET /js/highlighter.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/difflib.js
+INFO:     127.0.0.1:59842 - "GET /js/difflib.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/editor.js
+INFO:     127.0.0.1:59843 - "GET /js/editor.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/suggestions.js
+INFO:     127.0.0.1:59849 - "GET /js/suggestions.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/conv.js
+INFO:     127.0.0.1:59842 - "GET /js/conv.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/brainstorm.js
+INFO:     127.0.0.1:59849 - "GET /js/brainstorm.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/markers.js
+INFO:     127.0.0.1:59843 - "GET /js/markers.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/review.js
+INFO:     127.0.0.1:59842 - "GET /js/review.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/verify.js
+INFO:     127.0.0.1:59849 - "GET /js/verify.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /js/shortcuts.js
+INFO:     127.0.0.1:59843 - "GET /js/shortcuts.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/loader.js
+INFO:     127.0.0.1:59842 - "GET /static/monaco/vs/loader.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:30] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.js
+INFO:     127.0.0.1:59842 - "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 200 OK
+[2025-07-11 04:30:31] [User UU6870a99c0023f749e819e79c] /stackframe.js
+INFO:     127.0.0.1:59842 - "GET /stackframe.js HTTP/1.1" 404 Not Found
+[2025-07-11 04:30:31] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.css
+INFO:     127.0.0.1:59842 - "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 200 OK
+[2025-07-11 04:31:02] [User UU6870a99c0023f749e819e79c] /
+INFO:     127.0.0.1:59907 - "GET / HTTP/1.1" 200 OK
+[2025-07-11 04:31:02] [User UU6870a99c0023f749e819e79c] /stackframe.js
+INFO:     127.0.0.1:59907 - "GET /stackframe.js HTTP/1.1" 404 Not Found
+[2025-07-11 04:31:09] [User UU6870a99c0023f749e819e79c] /new_doc
+INFO:     127.0.0.1:59936 - "GET /new_doc HTTP/1.1" 405 Method Not Allowed
+[2025-07-11 04:33:08] [User UU6870a99c0023f749e819e79c] /new_doc
+INFO:     127.0.0.1:60173 - "GET /new_doc HTTP/1.1" 405 Method Not Allowed
+WARNING:  StatReload detected changes in 'app_inksync.py'. Reloading...
+ [2025-07-11 04:35:06] [User UU6870a99c0023f749e819e79c] /new_doc
+INFO:     127.0.0.1:60883 - "GET /new_doc HTTP/1.1" 405 Method Not Allowed
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21460]
+INFO:     Started server process [13808]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13808]
+INFO:     Stopping reloader process [23544]
+INFO:     Will watch for changes in these directories: ['C:\\Users\\20896\\Inmono']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [33436] using StatReload
+INFO:     Started server process [23472]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[2025-07-11 04:35:22] [User UU6870a99c0023f749e819e79c] /
+INFO:     127.0.0.1:60920 - "GET / HTTP/1.1" 200 OK
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /css/main.css
+INFO:     127.0.0.1:60920 - "GET /css/main.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /css/ablation.css
+INFO:     127.0.0.1:60922 - "GET /css/ablation.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /css/intro.css
+INFO:     127.0.0.1:60921 - "GET /css/intro.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /css/spinner.css
+INFO:     127.0.0.1:60920 - "GET /css/spinner.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/jquery.min.js
+INFO:     127.0.0.1:60922 - "GET /js/jquery.min.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/highlighter.js
+INFO:     127.0.0.1:60921 - "GET /js/highlighter.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/difflib.js
+INFO:     127.0.0.1:60920 - "GET /js/difflib.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/editor.js
+INFO:     127.0.0.1:60922 - "GET /js/editor.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/conv.js
+INFO:     127.0.0.1:60920 - "GET /js/conv.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/suggestions.js
+INFO:     127.0.0.1:60921 - "GET /js/suggestions.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/review.js
+INFO:     127.0.0.1:60921 - "GET /js/review.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/markers.js
+INFO:     127.0.0.1:60922 - "GET /js/markers.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/brainstorm.js
+INFO:     127.0.0.1:60920 - "GET /js/brainstorm.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/verify.js
+INFO:     127.0.0.1:60921 - "GET /js/verify.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /js/shortcuts.js
+INFO:     127.0.0.1:60922 - "GET /js/shortcuts.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/loader.js
+INFO:     127.0.0.1:60920 - "GET /static/monaco/vs/loader.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.js
+INFO:     127.0.0.1:60920 - "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.css
+INFO:     127.0.0.1:60920 - "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:35:23] [User UU6870a99c0023f749e819e79c] /stackframe.js
+INFO:     127.0.0.1:60920 - "GET /stackframe.js HTTP/1.1" 404 Not Found
+[2025-07-11 04:35:24] [User UU6870a99c0023f749e819e79c] /new_doc
+INFO:     127.0.0.1:60920 - "GET /new_doc HTTP/1.1" 307 Temporary Redirect
+[2025-07-11 04:35:24] [User UU6870a99c0023f749e819e79c] /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12
+INFO:     127.0.0.1:60920 - "GET /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12 HTTP/1.1" 200 OK
+[2025-07-11 04:35:24] [User UU6870a99c0023f749e819e79c] /doc/stackframe.js
+INFO:     127.0.0.1:60920 - "GET /doc/stackframe.js HTTP/1.1" 200 OK
+[2025-07-11 04:35:25] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/basic-languages/python/python.js
+INFO:     127.0.0.1:60920 - "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 200 OK
+[2025-07-11 04:35:26] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/base/worker/workerMain.js
+INFO:     127.0.0.1:60943 - "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 200 OK
+[2025-07-11 04:40:20] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf
+INFO:     127.0.0.1:61930 - "GET /static/monaco/vs/base/browser/ui/codicons/codicon/codicon.ttf HTTP/1.1" 200 OK
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12
+INFO:     127.0.0.1:61930 - "GET /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12 HTTP/1.1" 200 OK
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /css/main.css
+INFO:     127.0.0.1:61930 - "GET /css/main.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /css/intro.css
+INFO:     127.0.0.1:61932 - "GET /css/intro.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /css/ablation.css
+INFO:     127.0.0.1:61930 - "GET /css/ablation.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /css/spinner.css
+INFO:     127.0.0.1:61932 - "GET /css/spinner.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/jquery.min.js
+INFO:     127.0.0.1:61930 - "GET /js/jquery.min.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/highlighter.js
+INFO:     127.0.0.1:61932 - "GET /js/highlighter.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/editor.js
+INFO:     127.0.0.1:61932 - "GET /js/editor.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/difflib.js
+INFO:     127.0.0.1:61930 - "GET /js/difflib.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/suggestions.js
+INFO:     127.0.0.1:61932 - "GET /js/suggestions.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/conv.js
+INFO:     127.0.0.1:61930 - "GET /js/conv.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/brainstorm.js
+INFO:     127.0.0.1:61930 - "GET /js/brainstorm.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/markers.js
+INFO:     127.0.0.1:61932 - "GET /js/markers.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/review.js
+INFO:     127.0.0.1:61930 - "GET /js/review.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/verify.js
+INFO:     127.0.0.1:61932 - "GET /js/verify.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /js/shortcuts.js
+INFO:     127.0.0.1:61930 - "GET /js/shortcuts.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/loader.js
+INFO:     127.0.0.1:61932 - "GET /static/monaco/vs/loader.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.js
+INFO:     127.0.0.1:61932 - "GET /static/monaco/vs/editor/editor.main.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /doc/stackframe.js
+INFO:     127.0.0.1:61932 - "GET /doc/stackframe.js HTTP/1.1" 200 OK
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/editor/editor.main.css
+INFO:     127.0.0.1:61932 - "GET /static/monaco/vs/editor/editor.main.css HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:23] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/basic-languages/python/python.js
+INFO:     127.0.0.1:61932 - "GET /static/monaco/vs/basic-languages/python/python.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:40:25] [User UU6870a99c0023f749e819e79c] /static/docs/index.html
+INFO:     127.0.0.1:61932 - "GET /static/docs/index.html HTTP/1.1" 200 OK
+[2025-07-11 04:40:25] [User UU6870a99c0023f749e819e79c] /static/docs/style.css
+INFO:     127.0.0.1:61932 - "GET /static/docs/style.css HTTP/1.1" 200 OK
+[2025-07-11 04:40:25] [User UU6870a99c0023f749e819e79c] /static/docs/catalog.json
+INFO:     127.0.0.1:61932 - "GET /static/docs/catalog.json HTTP/1.1" 200 OK
+[2025-07-11 04:40:25] [User UU6870a99c0023f749e819e79c] /static/docs/contents.json
+INFO:     127.0.0.1:61932 - "GET /static/docs/contents.json HTTP/1.1" 200 OK
+[2025-07-11 04:40:25] [User UU6870a99c0023f749e819e79c] /static/monaco/vs/base/worker/workerMain.js
+INFO:     127.0.0.1:61930 - "GET /static/monaco/vs/base/worker/workerMain.js HTTP/1.1" 304 Not Modified
+[2025-07-11 04:41:43] [User UU6870a99c0023f749e819e79c] /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12
+INFO:     127.0.0.1:62263 - "GET /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12 HTTP/1.1" 200 OK
+[2025-07-11 04:41:43] [User UU6870a99c0023f749e819e79c] /static/docs/index.html
+INFO:     127.0.0.1:62263 - "GET /static/docs/index.html HTTP/1.1" 200 OK
+[2025-07-11 04:41:43] [User UU6870a99c0023f749e819e79c] /doc/stackframe.js
+INFO:     127.0.0.1:62263 - "GET /doc/stackframe.js HTTP/1.1" 200 OK
+[2025-07-11 04:43:14] [User UU6870a99c0023f749e819e79c] /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12
+INFO:     127.0.0.1:62537 - "GET /doc/user_UU6870a99c0023f749e819e79c_6870cccc0023f75bb0216e12 HTTP/1.1" 200 OK
+[2025-07-11 04:43:15] [User UU6870a99c0023f749e819e79c] /doc/stackframe.js
+INFO:     127.0.0.1:62537 - "GET /doc/stackframe.js HTTP/1.1" 200 OK
