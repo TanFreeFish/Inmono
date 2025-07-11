@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML标签渐进式学习文档</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="搜索标签...">
+        <button id="search-btn" aria-label="搜索">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="7" stroke="white" stroke-width="2"/>
+            <line x1="16" y1="16" x2="21" y2="21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <ul id="catalog"></ul>
+    </div>
+    <div class="content">
+      <div class="header">
+        <h2 id="tag-title">请选择左侧标签</h2>
+        <div class="timer-display">
+          <div class="timer-item">
+            <span class="timer-label">基础内容：</span>
+            <span id="basic-time">00:00</span>
+          </div>
+          <div class="timer-item">
+            <span class="timer-label">进阶内容：</span>
+            <span id="advanced-time">00:00</span>
+          </div>
+        </div>
+      </div>
+      <div id="level-navigation" style="display:none;">
+        <div class="level-info">
+          <span id="current-level">基础</span>
+          <span id="level-progress">1/4</span>
+        </div>
+        <div class="nav-buttons">
+          <button id="prev-btn" disabled>上一级</button>
+          <button id="next-btn">下一级</button>
+        </div>
+      </div>
+      <div id="tag-content"></div>
+      <div id="completion-section" style="display:none;">
+        <button id="complete-btn" class="complete-button">阅读完毕</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let catalog = [];
+    let contents = {};
+    let currentTag = null;
+    let currentLevelIndex = 0;
+    let isTracking = false;
+    let basicTimer = 0;
+    let advancedTimer = 0;
+    let timerInterval = null;
+    let startTime = null;
+    
+    const DIFFICULTY = [
+      { key: 'basic', label: '基础', category: 'basic' },
+      { key: 'intermediate', label: '中级', category: 'basic' },
+      { key: 'advanced', label: '高级', category: 'advanced' },
+      { key: 'expert', label: '专家', category: 'advanced' }
+    ];
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function updateTimerDisplay() {
+      document.getElementById('basic-time').textContent = formatTime(basicTimer);
+      document.getElementById('advanced-time').textContent = formatTime(advancedTimer);
+    }
+
+    function startTimer() {
+      if (!isTracking) {
+        isTracking = true;
+        startTime = Date.now();
+        timerInterval = setInterval(() => {
+          const currentCategory = DIFFICULTY[currentLevelIndex].category;
+          if (currentCategory === 'basic') {
+            basicTimer++;
+          } else {
+            advancedTimer++;
+          }
+          updateTimerDisplay();
+        }, 1000);
+      }
+    }
+
+    function stopTimer() {
+      if (isTracking) {
+        isTracking = false;
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        console.log(`基础内容总时间: ${formatTime(basicTimer)}`);
+        console.log(`进阶内容总时间: ${formatTime(advancedTimer)}`);
+      }
+    }
+
+    async function loadData() {
+      catalog = await fetch('catalog.json').then(r => r.json());
+      contents = await fetch('contents.json').then(r => r.json()).catch(() => ({}));
+      renderCatalog(catalog);
+    }
+
+    function renderCatalog(list) {
+      const ul = document.getElementById('catalog');
+      ul.innerHTML = '';
+      list.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.title;
+        li.dataset.id = item.id;
+        li.onclick = () => selectTag(item);
+        ul.appendChild(li);
+      });
+    }
+
+    function selectTag(item) {
+      currentTag = item;
+      currentLevelIndex = 0;
+      document.getElementById('tag-title').textContent = item.title;
+      document.getElementById('tag-content').innerHTML = '';
+      document.getElementById('completion-section').style.display = 'none';
+      showLevelNavigation();
+      showCurrentLevel();
+      startTimer();
+
+      // 恢复“阅读完毕”按钮状态
+      const completeBtn = document.getElementById('complete-btn');
+      completeBtn.textContent = '阅读完毕';
+      completeBtn.disabled = false;
+      completeBtn.classList.remove('complete-done');
+    }
+
+    function showLevelNavigation() {
+      const nav = document.getElementById('level-navigation');
+      nav.style.display = 'block';
+      updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      
+      prevBtn.disabled = currentLevelIndex === 0;
+      nextBtn.disabled = currentLevelIndex === DIFFICULTY.length - 1;
+      
+      document.getElementById('current-level').textContent = DIFFICULTY[currentLevelIndex].label;
+      document.getElementById('level-progress').textContent = `${currentLevelIndex + 1}/${DIFFICULTY.length}`;
+      
+      // 在第四级显示完成按钮
+      if (currentLevelIndex === 3) {
+        document.getElementById('completion-section').style.display = 'block';
+      } else {
+        document.getElementById('completion-section').style.display = 'none';
+      }
+    }
+
+    function showCurrentLevel() {
+      if (!currentTag) return;
+      
+      const level = DIFFICULTY[currentLevelIndex];
+      const content = contents[currentTag.id]?.[level.key] || '暂无内容';
+      
+      const contentDiv = document.getElementById('tag-content');
+      contentDiv.innerHTML = `
+        <div class="level-block">
+          <h3>${level.label}</h3>
+          <pre class="content-text"></pre>
+        </div>
+      `;
+      contentDiv.querySelector('.content-text').textContent = content;
+      
+      updateNavigationButtons();
+    }
+
+    document.getElementById('prev-btn').addEventListener('click', function() {
+      if (currentLevelIndex > 0) {
+        currentLevelIndex--;
+        showCurrentLevel();
+      }
+    });
+
+    document.getElementById('next-btn').addEventListener('click', function() {
+      if (currentLevelIndex < DIFFICULTY.length - 1) {
+        currentLevelIndex++;
+        showCurrentLevel();
+      }
+    });
+
+    document.getElementById('complete-btn').addEventListener('click', function() {
+      stopTimer();
+      this.textContent = '您已完成此标签学习';
+      this.disabled = true;
+      this.classList.add('complete-done');
+    });
+
+    document.getElementById('search-btn').addEventListener('click', function() {
+      const val = document.getElementById('search').value.trim().toLowerCase();
+      if (!val) {
+        renderCatalog(catalog);
+        return;
+      }
+      const filtered = catalog.filter(item => item.title.toLowerCase().includes(val) || item.id.includes(val));
+      if (filtered.length === 0) {
+        alert('未找到相关标签');
+        document.getElementById('search').value = '';
+        renderCatalog(catalog);
+      } else {
+        renderCatalog(filtered);
+      }
+    });
+
+    loadData();
+  </script>
+</body>
+</html> 

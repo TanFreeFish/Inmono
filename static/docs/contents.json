@@ -1,0 +1,656 @@
+{
+  "a": {
+    "basic": "HTML锚点标签，用于创建超链接或页面内跳转",
+    "intermediate": "语法为<a href='url' target='_blank'>文本</a>，href指定链接地址，target控制打开方式，可设置download属性实现文件下载",
+    "advanced": "用于页面导航、锚点跳转和文件下载。示例：<a href='#section2'>跳转第二节</a>实现页内定位；<a href='resume.pdf' download>下载简历</a>触发文件下载",
+    "expert": "底层通过浏览器URL处理机制实现导航，跨域链接受同源策略限制。现代SPA应用中常被拦截转为路由跳转，SEO优化需注意可爬取性。rel='noopener'可防止钓鱼攻击"
+  },
+  "abbr": {
+    "basic": "定义缩写词或首字母缩略词，通过title属性提供完整解释",
+    "intermediate": "语法：<abbr title='完整解释'>缩写</abbr>。核心用途是为屏幕阅读器和用户提供语义化解释，改善无障碍访问",
+    "advanced": "适用于技术文档中的专业术语缩写。例如：<abbr title='Cascading Style Sheets'>CSS</abbr>。SEO会提取title内容作为关联数据，hover时显示完整释义",
+    "expert": "底层通过DOM的title属性实现提示功能，屏幕阅读器会优先朗读title内容。最佳实践是保持缩写一致性，对重复出现的术语只需首次标注，避免过度使用影响阅读流畅性"
+  },
+  "address": {
+    "basic": "address标签定义文档作者/所有者的联系信息，通常显示为斜体",
+    "intermediate": "语法为<address>联系信息</address>，常包含电子邮件、物理地址或社交媒体链接。通常位于footer或文章末尾",
+    "advanced": "用于网页页脚标注版权信息或作者联系方式。示例：<address>作者：<a href='mailto:contact@example.com'>联系邮箱</a><br>北京市海淀区</address>",
+    "expert": "address元素具有语义化价值，帮助搜索引擎识别联系信息。浏览器默认样式为display:block+font-style:italic。应避免嵌套非联系信息内容，多个作者可使用多个address标签"
+  },
+  "area": {
+    "basic": "<area>定义图像映射中的可点击区域，需与<map>配合使用",
+    "intermediate": "语法：<area shape=\"rect/circle/poly\" coords=\"坐标\" href=\"URL\" alt=\"描述\">。常用属性包括shape定义形状、coords定义坐标范围、href定义链接目标",
+    "advanced": "用于创建图片热点区域，例如电商网站的商品图片分区跳转。示例：<map name=\"productMap\"><area shape=\"rect\" coords=\"0,0,50,50\" href=\"shoes.html\" alt=\"运动鞋\"><area shape=\"circle\" coords=\"100,100,30\" href=\"hat.html\" alt=\"帽子\"></map>",
+    "expert": "原理上通过坐标系统建立图像与链接的映射关系，需注意：1) 坐标原点在左上角 2) 不同shape使用不同坐标格式 3) 移动端需考虑响应式适配 4) 应始终提供alt文本以满足可访问性要求"
+  },
+  "article": {
+    "basic": "HTML5语义化标签，用于定义文档独立内容区块",
+    "intermediate": "article标签包裹独立内容单元，支持全局属性，可嵌套使用。通常包含标题(h1-h6)和段落(p)，适用于博客、新闻等独立内容区块",
+    "advanced": "典型应用场景包括博客文章、论坛帖子或新闻故事。示例：<article><h2>文章标题</h2><p>正文内容...</p><footer>作者信息</footer></article>。支持section嵌套，可配合header/footer使用",
+    "expert": "article作为语义化容器，提升SEO和可访问性。浏览器将其识别为独立内容流，支持RSS聚合。与section的区别在于独立性：article可脱离上下文理解，而section是主题分组。最佳实践是确保每个article有明确标题，避免过度嵌套"
+  },
+  "aside": {
+    "basic": "<aside>是HTML5语义化标签，表示与页面主要内容间接相关的内容",
+    "intermediate": "作为侧边栏容器使用，通常包含补充信息、广告或导航。需配合CSS布局，独立于主内容流但语义关联",
+    "advanced": "适用于博客侧边栏、引用内容或辅助导航。示例：<aside><h3>相关文章</h3><ul><li>文章1</li></ul></aside>",
+    "expert": "浏览器将aside视为sectioning content，影响文档大纲结构。最佳实践是与main内容建立ARIA关联，确保屏幕阅读器能识别关系。避免嵌套在main内除非是直接相关内容补充"
+  },
+  "audio": {
+    "basic": "HTML5音频标签，用于在网页中嵌入声音内容",
+    "intermediate": "支持MP3/WAV/OGG格式，通过src属性指定音频源，controls属性显示播放控件",
+    "advanced": "适用于背景音乐、语音播报等场景。示例：<audio src='music.mp3' controls loop>您的浏览器不支持audio标签</audio>，可通过JavaScript的play()方法控制播放",
+    "expert": "底层使用浏览器媒体引擎解码，不同浏览器支持的编解码器不同。最佳实践应提供多种格式备用源，通过canPlayType检测兼容性。移动端需注意自动播放限制，建议用户交互后触发播放"
+  },
+  "b": {
+    "basic": "<b>标签用于加粗文本，是HTML中最基础的格式化元素之一",
+    "intermediate": "语法为<b>加粗内容</b>，属于物理样式标签，浏览器默认渲染为粗体，但建议优先使用CSS控制样式",
+    "advanced": "适用于需要视觉强调的非重要文本，如摘要关键词。与<strong>语义不同，仅表示样式变化。示例：<p>这是<b>重点</b>内容</p>",
+    "expert": "底层通过CSS的font-weight:bold实现，现代开发中应避免滥用。与<strong>的差异在于：HTML5中<b>无语义含义，而<strong>表示重要性。性能上，过度使用可能导致重绘开销"
+  },
+  "base": {
+    "basic": "HTML基础元素，用于指定文档中所有相对URL的基准地址",
+    "intermediate": "放置在head标签内，通过href属性指定基准URL，target属性设置默认打开方式。影响页面所有相对链接、图片路径等资源定位",
+    "advanced": "常用于统一管理静态资源路径或设置全局链接行为。示例：<base href='https://example.com/assets/'>会使<img src='logo.png'>实际请求https://example.com/assets/logo.png",
+    "expert": "浏览器解析时会优先处理base标签，其href值会与文档URL进行拼接处理。需注意：1) 必须放在其他含URL的元素前 2) 同一文档只能存在一个base标签 3) 锚点链接不受影响 4) 可能引发资源404需谨慎使用"
+  },
+  "bdi": {
+    "basic": "bdi标签用于隔离可能方向性不同的文本，如混合语言内容",
+    "intermediate": "bdi(Bidirectional Isolation)标签独立设置文本方向，不继承父元素方向属性。语法：<bdi>隔离文本</bdi>，常用于用户名等不确定方向的文本",
+    "advanced": "在混合语言界面中处理用户生成内容时使用。例如阿拉伯用户名的评论系统：<div>用户<bdi>علي</bdi>说：<bdi>Hello</bdi></div>，确保双向文本正确隔离显示",
+    "expert": "bdi通过Unicode双向算法隔离文本流，创建独立的方向上下文。与dir属性不同，它不强制指定方向而是隔离潜在冲突。现代浏览器通过CSS unicode-bidi:isolate实现，需注意旧版浏览器兼容性问题"
+  },
+  "bdo": {
+    "basic": "bdo标签用于覆盖默认文本方向，强制指定显示方向",
+    "intermediate": "通过dir属性指定文本方向(ltr从左到右/rtl从右到左)，如<bdo dir=\"rtl\">反向文本</bdo>，常用于阿拉伯语等从右向左书写的语言",
+    "advanced": "在多语言网站中处理混合方向文本时使用，例如阿拉伯语与拉丁文字混排时保持正确方向。示例：<bdo dir=\"rtl\">مرحبا Hello</bdo>会保持阿拉伯语从右向左，而Hello仍正常显示",
+    "expert": "底层通过Unicode双向算法(Bidi)实现方向控制，dir属性会覆盖浏览器的自动方向检测。最佳实践是仅在必要时使用，避免与CSS direction属性混用，在RTL语言网站中需配合lang属性确保语义正确"
+  },
+  "blockquote": {
+    "basic": "HTML块级引用标签，用于标记来自其他来源的长段引用内容",
+    "intermediate": "语法为<blockquote cite=\"来源URL\">引用内容</blockquote>，cite属性可选表示引用来源，浏览器默认添加缩进样式",
+    "advanced": "适用于论文参考文献、新闻引述等场景。示例：<blockquote cite=\"https://example.com\">根据W3C规范，该标签表示从其他来源引用的内容区块</blockquote>",
+    "expert": "语义化HTML5标签，浏览器默认添加margin-inline-start/end样式实现缩进。搜索引擎会特别解析cite属性建立内容关联，应确保引用内容完整性和来源准确性"
+  },
+  "body": {
+    "basic": "HTML文档主体容器，包含所有可见内容",
+    "intermediate": "作为HTML根元素的内容容器，每个页面只能有一个，包含网页所有可见元素（文本/图片/链接等），支持全局属性如class/id",
+    "advanced": "典型应用场景：1)设置全局背景色<body style='background:#f0f0f0'> 2)绑定事件监听<body onload='init()'> 3)结构化内容容器。示例：<body><header></header><main></main><footer></footer></body>",
+    "expert": "浏览器渲染时构建DOM树的核心节点，默认具有margin/padding等样式属性。现代最佳实践：1)避免直接操作body样式 2)使用语义化子元素 3)通过CSS变量控制全局样式 4)性能优化需注意body内元素数量及渲染复杂度"
+  },
+  "br": {
+    "basic": "HTML换行标签，用于在文本中强制换行显示",
+    "intermediate": "自闭合标签<br>或<br/>，浏览器解析时会在此处插入换行符，不包含任何属性时无需闭合标签",
+    "advanced": "适用于地址分行显示、诗歌格式等需要控制换行的场景。示例：<p>第一行<br>第二行</p>",
+    "expert": "浏览器将<br>解析为CSS的'display: inline'元素并插入换行符，实际渲染高度由父元素行高决定。过度使用会导致语义化缺失，应优先使用块级元素+CSS控制布局"
+  },
+  "button": {
+    "basic": "button是HTML表单交互元素，用于触发用户操作",
+    "intermediate": "语法为<button type='submit|reset|button'>，支持disabled属性禁用按钮，可通过CSS样式化按钮外观",
+    "advanced": "常见于表单提交/重置操作，也用于触发JS事件。示例：<button onclick='handleClick()' class='primary-btn'>提交</button>，现代框架中常用组件化按钮替代原生button",
+    "expert": "底层为可聚焦的可交互元素，浏览器默认渲染为平台原生按钮样式。最佳实践包括：语义化type属性、ARIA无障碍支持、防重复点击处理。现代Web倾向使用<button>而非<input type='button'>以获得更好的样式控制和DOM操作灵活性"
+  },
+  "canvas": {
+    "basic": "HTML5的canvas元素用于通过JavaScript动态绘制图形，创建动画或游戏界面",
+    "intermediate": "需定义width/height属性设置画布尺寸，通过getContext('2d')获取绘图上下文，使用fillRect等API绘制基本图形",
+    "advanced": "常见于数据可视化图表绘制和游戏开发。示例：const ctx = canvas.getContext('2d'); ctx.fillStyle='red'; ctx.fillRect(10,10,100,50); 绘制红色矩形",
+    "expert": "底层基于位图渲染，所有绘制操作会立即光栅化为像素数据。性能优化关键：减少绘制调用、使用离屏canvas缓存复杂图形、合理使用requestAnimationFrame实现动画，避免频繁重绘整个画布区域"
+  },
+  "caption": {
+    "basic": "<caption>定义表格标题，必须作为<table>的第一个子元素",
+    "intermediate": "语法：<caption align=\"top|bottom\">标题文本</caption>。默认显示在表格上方，一个表格只能有一个标题",
+    "advanced": "应用场景：为数据表格提供语义化标题，辅助屏幕阅读器识别。示例：<table><caption>2023销售数据</caption><tr><th>月份</th><th>销售额</th></tr>",
+    "expert": "原理：caption元素通过DOM接口HTMLTableCaptionElement实现，浏览器会为其创建单独的渲染层。最佳实践是始终为数据表格添加caption以提高可访问性，并通过CSS的caption-side属性控制位置而非废弃的align属性"
+  },
+  "cite": {
+    "basic": "HTML引用标签，用于标明作品标题或引用来源",
+    "intermediate": "cite标签定义作品（如书籍、歌曲等）的标题，通常浏览器会以斜体显示。语法：<cite>作品名</cite>",
+    "advanced": "在学术文章或博客中标注引用来源时使用。示例：<p>出自<cite>红楼梦</cite>第五回</p>。注意与blockquote区别，cite仅标注标题而非具体内容",
+    "expert": "cite元素具有语义价值，帮助屏幕阅读器识别引用来源。HTML5规范中cite仅用于作品标题，误用于人名会导致语义错误。SEO中合理使用可增强内容可信度，应与微格式配合使用"
+  },
+  "code": {
+    "basic": "HTML代码容器标签，用于显示计算机代码片段",
+    "intermediate": "行内元素，默认等宽字体显示。需与<pre>配合实现多行代码块，浏览器会保留内部空白符但不解析HTML标签",
+    "advanced": "适用于技术文档展示代码示例。单行代码直接使用<code>，多行需嵌套<pre>。示例：<pre><code>function test() {\n  return 'code block'\n}</code></pre>",
+    "expert": "底层通过CSS的font-family: monospace实现等宽效果。与<pre>的区别在于不保留格式换行，需注意XSS防护。最佳实践是配合语法高亮库使用，避免直接渲染用户输入代码"
+  },
+  "col": {
+    "basic": "<col>定义表格列的样式属性，用于<colgroup>内控制单列或多列样式",
+    "intermediate": "语法：<col span='数量' style='属性'>，span指定作用列数，常用style控制宽度/背景色等样式属性",
+    "advanced": "应用场景：统一管理数据表格的列样式。示例：<colgroup><col span='2' style='width:100px'><col style='background:#eee'>控制前两列宽度和第三列背景色",
+    "expert": "原理：浏览器解析时会创建匿名表格列对象，通过CSS特异性控制样式。最佳实践：优先用CSS类替代内联样式，span需严格匹配实际列数避免布局错乱"
+  },
+  "colgroup": {
+    "basic": "colgroup定义表格中列组的样式属性",
+    "intermediate": "HTML表格中用于分组列，通过span属性指定列数或单独定义每列样式，常与col标签配合使用",
+    "advanced": "适用于需要统一设置多列样式的表格场景，如财务报表的高亮列。示例：<colgroup span=\"2\" style=\"background:yellow\"><col style=\"width:100px\"><col style=\"width:200px\">",
+    "expert": "浏览器渲染时会根据colgroup建立列样式映射，优先于单元格样式但低于行内样式。最佳实践是与CSS类结合使用，避免直接内联样式，以提升表格渲染性能和可维护性"
+  },
+  "data": {
+    "basic": "HTML的<data>标签用于将内容与机器可读的翻译关联",
+    "intermediate": "<data>标签必须包含value属性表示机器可读值，内容为人类可读文本。常与微数据或RDFa配合使用，例如<data value='ISBN123'>书籍编号</data>",
+    "advanced": "在电商网站中用于标记商品信息，既保持页面可读性又便于搜索引擎抓取。示例：<data value='product_1234' class='sku'>红色T恤</data>，配合JSON-LD实现结构化数据",
+    "expert": "底层通过微数据规范实现语义化，value属性会被爬虫解析为特定词汇表的实例。最佳实践是与schema.org词汇表配合，避免自定义value值。浏览器默认样式与<span>相同，需CSS定制显示效果"
+  },
+  "datalist": {
+    "basic": "datalist是HTML5表单元素，为input提供预定义选项列表",
+    "intermediate": "与input元素配合使用，通过list属性关联datalist的id。用户可输入或从下拉列表选择预定义选项",
+    "advanced": "适用于搜索框自动补全、表单选项提示等场景。示例：<input list='browsers'><datalist id='browsers'><option value='Chrome'><option value='Firefox'>",
+    "expert": "底层通过ARIA角色实现无障碍访问，浏览器将其渲染为组合框。与select不同，允许自由输入且支持动态更新选项。性能优化需注意大数据量时的渲染效率"
+  },
+  "dd": {
+    "basic": "HTML描述列表中的定义描述项，需与<dt>配对使用",
+    "intermediate": "在<dl>容器内使用，语法为<dd>描述内容</dd>，用于解释前驱<dt>术语的定义",
+    "advanced": "适用于术语解释场景，如技术文档中的名词解释。示例：<dl><dt>HTML</dt><dd>超文本标记语言</dd></dl>",
+    "expert": "作为描述列表的语义化元素，与<dt>构成关联结构。浏览器默认渲染为块级元素并添加左缩进，可通过CSS重置样式。SEO中能增强术语-定义的语义关联"
+  },
+  "del": {
+    "basic": "HTML删除线标签，用于表示被删除的文本内容",
+    "intermediate": "语法为<del>被删除文本</del>，与<s>标签语义不同，表示文档修订时删除的内容而非单纯样式删除线",
+    "advanced": "在版本对比、文档修订场景使用，如：<p>原价：<del>299</del> 现价：199</p>。可配合datetime属性记录删除时间：<del datetime=\"2023-01-01\">旧条款</del>",
+    "expert": "底层通过CSS text-decoration: line-through实现删除线效果，但具有语义化价值。与<s>标签的区别在于<del>表示内容已失效但需保留历史记录，属于编辑语义标签。屏幕阅读器会特别处理此类语义化标签"
+  },
+  "details": {
+    "basic": "<details>是HTML5原生折叠内容标签，需配合<summary>使用",
+    "intermediate": "语法：<details><summary>标题</summary>内容</details>。open属性控制默认展开，支持CSS样式定制",
+    "advanced": "适用于FAQ、代码折叠等场景。示例：<details><summary>查看答案</summary><p>这是被折叠的详细解释内容</p></details>。可通过details[open]选择器设置展开样式",
+    "expert": "底层通过浏览器原生实现折叠效果，无需JS。性能优于JS方案但样式受限。最佳实践：复杂交互需配合JS，简单内容优先使用原生方案。注意可访问性aria属性设置"
+  },
+  "dfn": {
+    "basic": "HTML定义术语标签，用于标记文档中的术语定义实例",
+    "intermediate": "语法为<dfn>术语内容</dfn>，通常与<abbr>或<title>属性配合使用，浏览器默认显示斜体样式",
+    "advanced": "适用于技术文档中的术语解释场景，如：<p><dfn title='超文本标记语言'>HTML</dfn>是网页标准语言</p>，注意需保持上下文语义关联",
+    "expert": "作为语义化标签，dfn通过建立术语与定义的关联增强可访问性。浏览器通过默认样式提示定义关系，SEO会识别其语义价值。最佳实践是与id/aria属性配合实现精确术语索引，避免孤立使用"
+  },
+  "dialog": {
+    "basic": "HTML5原生对话框元素，通过showModal()方法控制显示",
+    "intermediate": "使用<dialog open>属性或JS的showModal()打开对话框，包含表单时需method='dialog'提交关闭",
+    "advanced": "适合模态弹窗场景，如登录框。示例：const dialog = document.querySelector('dialog'); dialog.showModal(); 通过ESC键或dialog.close()关闭",
+    "expert": "基于顶层API实现模态层，通过::backdrop伪元素控制遮罩样式。浏览器会将其置于顶层堆栈上下文，自动处理焦点锁定和ESC键关闭行为，需注意Polyfill兼容性问题"
+  },
+  "div": {
+    "basic": "HTML基础容器标签，用于文档内容分组",
+    "intermediate": "语法为<div></div>，块级元素默认占满整行，常配合CSS实现布局",
+    "advanced": "用于构建页面结构，如创建卡片布局。示例：<div class='card'><h3>标题</h3><p>内容</p></div>",
+    "expert": "作为CSS布局的基础单位，现代浏览器通过盒模型渲染。最佳实践是避免过度嵌套，配合语义化标签使用。BFC特性使其成为flex/grid布局的理想容器，性能优化需注意重绘问题"
+  },
+  "dl": {
+    "basic": "HTML描述列表标签，包含术语和描述的组合",
+    "intermediate": "由<dl>定义列表，<dt>定义术语，<dd>定义描述。结构为<dl><dt>术语</dt><dd>描述</dd></dl>",
+    "advanced": "适用于名词解释场景，如API文档参数说明。示例：<dl><dt>font-size</dt><dd>控制文字大小的CSS属性</dd><dt>margin</dt><dd>元素外边距设置属性</dd></dl>",
+    "expert": "语义化标签，辅助屏幕阅读器识别术语-描述关系。浏览器默认渲染为块级元素，dd带有左外边距。SEO优化时可用于结构化数据标记，但需避免过度嵌套影响可访问性。"
+  },
+  "dt": {
+    "basic": "HTML定义术语元素，用于描述定义列表中的术语",
+    "intermediate": "必须嵌套在<dl>标签内使用，与<dd>配对出现，语法：<dl><dt>术语</dt><dd>描述</dd></dl>",
+    "advanced": "适用于术语表场景，如技术文档中的名词解释。示例：<dl><dt>HTML</dt><dd>超文本标记语言</dd><dt>CSS</dt><dd>层叠样式表</dd></dl>",
+    "expert": "作为描述列表的语义化组件，浏览器默认渲染为块级元素。最佳实践是与<dd>严格配对使用，WCAG标准要求定义列表必须完整包含术语和描述，屏幕阅读器会按关联关系朗读。DOM接口为HTMLDListElement的子节点"
+  },
+  "em": {
+    "basic": "em标签用于定义强调文本，默认显示为斜体",
+    "intermediate": "HTML语义化标签，表示内容需要强调。语法：<em>强调文本</em>，与<i>标签视觉相同但语义不同",
+    "advanced": "适用于需要语义化强调的文本片段，如技术文档中的关键术语。示例：<p>在CSS中，<em>盒模型</em>是核心概念</p>",
+    "expert": "em标签具有语义价值，浏览器/屏幕阅读器会识别其强调含义。嵌套em会增强强调程度，CSS可覆写其斜体样式。在无障碍访问中比纯视觉的<i>标签更符合WAI-ARIA标准"
+  },
+  "embed": {
+    "basic": "embed标签用于嵌入外部内容，如多媒体或插件",
+    "intermediate": "语法为<embed src='资源URL' type='MIME类型' width='宽度' height='高度'>，支持PDF/Flash/SVG等格式嵌入",
+    "advanced": "常用于嵌入第三方内容：<embed src='chart.swf' type='application/x-shockwave-flash' width='400' height='300'>。现代网页逐渐被iframe替代，但在遗留系统中仍可见",
+    "expert": "底层通过浏览器插件架构实现，依赖NPAPI/PPAPI等接口。由于安全性和性能问题，HTML5推荐使用<object>或<iframe>替代。最佳实践应避免在新项目中使用，对已嵌入内容需做好降级处理"
+  },
+  "fieldset": {
+    "basic": "fieldset是HTML表单分组元素，用于将相关控件组合在一起",
+    "intermediate": "语法为<fieldset><legend>标题</legend>表单控件</fieldset>，legend定义分组标题，常与表单元素配合使用增强可访问性",
+    "advanced": "典型应用是复杂表单的分区，如注册页的个人信息/支付信息分组。示例：<fieldset><legend>联系方式</legend><input type='text' name='phone'></fieldset>",
+    "expert": "底层通过创建独立格式化上下文实现视觉隔离，浏览器默认添加2px边框和padding。最佳实践是始终配合legend使用以提升屏幕阅读器识别，CSS重置时需注意保留原生可访问性特性，现代前端框架中仍推荐使用原生标签而非div模拟"
+  },
+  "figcaption": {
+    "basic": "figcaption是HTML5标签，用于定义figure元素的标题",
+    "intermediate": "必须嵌套在figure标签内使用，语法为<figcaption>标题内容</figcaption>，支持所有全局属性，通常显示在figure内容的上方或下方",
+    "advanced": "适用于图片组、图表、代码示例等需要说明的媒体内容。示例：<figure><img src='chart.png'><figcaption>图1：2023年销售趋势</figcaption></figure>，增强语义化和无障碍访问",
+    "expert": "作为HTML5语义化标签，figcaption通过DOM树与figure建立父子关系，浏览器会将其渲染为块级元素。最佳实践是与aria-label配合使用，确保屏幕阅读器能正确识别标题与内容的关联关系，提升可访问性"
+  },
+  "figure": {
+    "basic": "<figure>是HTML5语义化标签，用于包裹独立内容如图片、图表或代码示例",
+    "intermediate": "通常与<figcaption>配合使用，语法为<figure>内容<figcaption>标题</figcaption></figure>，支持CSS样式控制布局",
+    "advanced": "适用于图文混排场景，如技术文档中的代码演示：<figure><pre>const data = {id:1}</pre><figcaption>示例代码</figcaption></figure>，也可用于响应式图片组",
+    "expert": "作为文档流中的独立内容单元，与上下文形成语义隔离。浏览器会将其视为BFC(块级格式上下文)，内部元素垂直排列。最佳实践是确保<figcaption>作为首/末子元素以提升可访问性，并配合ARIA标签增强屏幕阅读器识别"
+  },
+  "footer": {
+    "basic": "HTML5语义化标签，定义文档或章节的页脚区域",
+    "intermediate": "通常包含版权信息、作者信息或相关链接，位于文档底部，可嵌套address等元素，支持全局属性",
+    "advanced": "适用于网页底部版权声明区块，示例：<footer><p>© 2023 公司名称</p><address>联系方式</address></footer>",
+    "expert": "作为HTML5语义化标签之一，footer通过定义内容区域提升可访问性，浏览器将其识别为页脚内容区块，SEO中作为辅助信息权重较低，但能增强文档结构清晰度，一个页面可出现多次但需保持语义合理性"
+  },
+  "form": {
+    "basic": "HTML表单容器，用于收集用户输入数据并通过HTTP请求提交到服务器",
+    "intermediate": "基本语法包含action(提交地址)、method(GET/POST)、enctype(编码类型)等属性。可包含input/select/button等交互元素",
+    "advanced": "典型应用包括登录/注册/搜索表单。代码示例：<form action='/login' method='POST'><input name='username'><input type='password' name='pwd'><button>提交</button></form>",
+    "expert": "底层通过FormData API构建键值对数据，GET方法将参数编码在URL中，POST通过请求体发送。现代SPA应用中常被fetch API替代，但仍是SEO友好且无JS环境下的回退方案。注意CSRF防护和表单验证最佳实践"
+  },
+  "h1": {
+    "basic": "HTML顶级标题标签，定义文档主标题，默认显示为最大字号",
+    "intermediate": "语法为<h1>标题内容</h1>，一个页面建议只使用一次，用于标明页面核心主题，具有最高语义权重",
+    "advanced": "SEO优化关键元素，通常用于页面主标题。示例：<h1>商品详情页</h1>配合<h2>商品参数</h2>等次级标题构成文档结构",
+    "expert": "浏览器默认赋予2em字号和bold样式，通过document.querySelector('h1')可访问DOM节点。HTML5规范要求其反映当前页面/章节主题，不应滥用。搜索引擎将其作为页面主题重要指标，应与<title>标签内容保持语义关联"
+  },
+  "h2": {
+    "basic": "HTML二级标题标签，用于定义文档中的次级章节标题",
+    "intermediate": "语法为<h2>标题内容</h2>，在HTML文档中按语义化层级排列，应位于<h1>之后且层级高于<h3>，默认显示为加粗的中等字号文本",
+    "advanced": "典型应用包括文章子章节、侧边栏模块标题等场景。示例：<h2>产品特点</h2>后跟随段落文本，或<h2 class='sidebar-title'>相关推荐</h2>配合CSS样式",
+    "expert": "作为HTML5大纲算法的关键元素，h2参与构建文档结构树。浏览器默认样式通过user-agent stylesheet定义，SEO中权重仅次于h1。最佳实践要求保持层级连续性(不跳过h2直接使用h3)，并避免过度嵌套"
+  },
+  "h3": {
+    "basic": "HTML标题标签，定义第三级标题，具有语义化层级结构",
+    "intermediate": "语法为<h3>标题内容</h3>，默认显示为加粗文本，字号介于h2和h4之间，会创建新的块级上下文",
+    "advanced": "用于文章子章节/侧边栏标题等场景，应与h1-h2保持逻辑层级关系。示例：<h3>用户评论</h3>配合<section>使用，形成文档大纲结构",
+    "expert": "作为heading content元素参与文档大纲算法，影响SEO和可访问性。浏览器默认样式可通过CSS重置，但应保持视觉层级。屏幕阅读器会将其识别为三级导航节点，滥用会导致文档结构混乱"
+  },
+  "h4": {
+    "basic": "HTML4级标题标签，用于定义文档中的次级标题",
+    "intermediate": "语法为<h4>标题内容</h4>，在HTML文档中表示第四层级标题，默认显示为加粗的中等字号文本",
+    "advanced": "适用于内容结构中的第四级分类，如文章子章节的小标题。示例：<h4>3.1.2 性能优化</h4>，常与CSS配合实现层级样式",
+    "expert": "作为HTML标题元素(h1-h6)中的第四级，具有语义化价值，影响SEO和可访问性。浏览器默认样式为font-size:1em/margin-top:1.33em，可通过CSS重置。应保持标题层级逻辑性，避免跳过h4直接使用h5"
+  },
+  "h5": {
+    "basic": "HTML5标题标签，定义第五级标题",
+    "intermediate": "语义化标签，用于文档层级结构，默认字号小于h4大于h6，支持全局属性",
+    "advanced": "适用于副标题或章节小标题，常与section/article嵌套使用。示例：<section><h5>性能优化</h5><p>缓存策略...</p></section>",
+    "expert": "作为HTML标题元素层级的一部分，h5在文档大纲算法中生成第五级节点。浏览器默认样式表定义其font-size为0.83em，margin-top/bottom为1.67em。SEO权重低于h1但高于普通文本，应与heading层次结构配合使用"
+  },
+  "h6": {
+    "basic": "HTML第六级标题标签，用于定义文档中最小的标题层级",
+    "intermediate": "语法为<h6>标题内容</h6>，默认显示为最小字号标题，通常用于版权信息或辅助性小标题",
+    "advanced": "适用于页面底部次要信息展示，如版权声明：<h6>© 2023 公司名称 保留所有权利</h6>，常配合CSS降低视觉权重",
+    "expert": "作为HTML标题层级体系的末端，h6的语义权重最低但仍是文档结构的重要组成部分。浏览器默认样式为font-size:0.67em，现代开发中应通过CSS重置其样式以保持设计系统一致性，同时确保屏幕阅读器能正确识别其语义角色"
+  },
+  "head": {
+    "basic": "HTML文档头部容器，包含元数据、标题和外部资源链接",
+    "intermediate": "位于<html>标签内，包含<meta>、<title>、<link>等子元素，用于定义文档属性、引入CSS/JS和设置视口",
+    "advanced": "SEO优化关键区域，包含字符集声明、视口设置和预加载资源。示例：<meta charset='UTF-8'><meta name='viewport' content='width=device-width'><link rel='stylesheet' href='style.css'>",
+    "expert": "浏览器解析时优先处理<head>内容，其中<meta http-equiv>可模拟HTTP头，预加载资源通过rel=preload提升性能，搜索引擎主要抓取此区域的标题、描述和关键词元数据"
+  },
+  "header": {
+    "basic": "HTML5语义化标签，表示页面或章节的头部内容区域",
+    "intermediate": "包裹导航链接、LOGO、搜索框等头部元素，替代div实现语义化。可包含h1-h6、nav等标签，每个页面建议只使用一个",
+    "advanced": "典型应用场景：网页顶部导航区。与main、footer配合构建页面结构。示例：<header><h1>网站标题</h1><nav><a href='/'>首页</a></nav></header>",
+    "expert": "作为文档大纲算法的关键节点，帮助屏幕阅读器识别内容结构。HTML5新增的语义化标签之一，与section/article等配合使用需注意嵌套关系。SEO中权重仅次于title，应包含关键词但避免堆砌"
+  },
+  "hr": {
+    "basic": "HTML水平分隔线标签，用于在页面中创建一条水平线",
+    "intermediate": "空标签语法为<hr>，可通过CSS样式控制线条粗细/颜色/边距等视觉表现，默认显示为1px灰色实线",
+    "advanced": "常用于文章章节分隔或表单区域划分。示例：<hr style='border: 2px dashed #ccc; margin: 20px 0'>创建虚线分隔线",
+    "expert": "浏览器将<hr>渲染为带阴影边框的块级元素，实际表现为border-style: inset的双边框效果。现代开发建议用CSS border替代以实现更精细控制，但语义上仍适合表示主题分隔"
+  },
+  "html": {
+    "basic": "HTML文档的根元素，包含所有其他HTML元素",
+    "intermediate": "作为文档容器，必须包含<head>和<body>子元素，lang属性声明文档语言。基本结构：<html><head></head><body></body></html>",
+    "advanced": "多语言网站开发时，通过<html lang='zh-CN'>指定中文内容。SPA应用中常与<!DOCTYPE>配合确保标准模式渲染。示例：<html lang='en'><head><meta charset='UTF-8'></head><body></body></html>",
+    "expert": "浏览器将<html>作为文档对象模型(DOM)的根节点，其解析触发DOMContentLoaded事件。现代浏览器通过文档类型声明决定渲染模式，quirks模式下<html>的盒模型处理存在差异。性能优化中应避免在<html>上直接绑定事件"
+  },
+  "i": {
+    "basic": "<i>标签用于表示斜体文本样式",
+    "intermediate": "HTML5中<i>标签语义上表示不同语气/声音的文本，通常浏览器会渲染为斜体。语法：<i>斜体内容</i>",
+    "advanced": "适用于技术术语/外语短语/角色内心独白等场景。示例：<p>在CSS中，<i>font-style</i>属性控制斜体显示</p>",
+    "expert": "现代Web开发中建议优先使用CSS的font-style:italic实现样式，而<i>应保留语义化用途。浏览器默认样式表包含i{font-style:italic}规则，但可通过CSS覆盖。与<em>的区别在于后者强调语义重要性，而<i>仅表示样式变化"
+  },
+  "iframe": {
+    "basic": "iframe是HTML内联框架元素，用于在当前文档中嵌入另一个网页",
+    "intermediate": "通过src属性指定嵌入内容URL，常用属性包括width/height控制尺寸，sandbox增强安全性，allow设置权限策略如摄像头访问",
+    "advanced": "常用于第三方内容嵌入(如地图/广告)、跨域隔离通信(postMessage)、微前端架构。示例：<iframe src='https://example.com' sandbox='allow-scripts' style='border:none'/>",
+    "expert": "底层通过浏览器进程隔离实现安全沙箱，每个iframe创建独立渲染上下文。性能优化需注意懒加载、资源预连接、动态尺寸调整。跨域限制遵循同源策略，CORS头部控制资源访问"
+  },
+  "img": {
+    "basic": "HTML图像标签，用于在网页中嵌入图片",
+    "intermediate": "通过src属性指定图片URL，alt属性提供替代文本。支持width/height设置尺寸，loading控制懒加载行为。",
+    "advanced": "常见于商品展示、相册等场景。响应式设计中配合srcset实现适配不同分辨率。示例：<img src='logo.png' alt='公司标志' width='200' loading='lazy' srcset='logo-2x.png 2x'>",
+    "expert": "浏览器解析时会发起独立HTTP请求获取图片资源。现代浏览器支持解码延迟(lazy loading)优化性能。srcset配合sizes属性可实现艺术方向切换(art direction)。注意跨域图片需配置CORS，WebP等新格式需考虑兼容性。"
+  },
+  "input": {
+    "basic": "HTML输入元素，用于创建交互式表单控件",
+    "intermediate": "通过type属性定义输入类型(text/password/checkbox等)，支持name/value/placeholder等属性，需配合form标签使用",
+    "advanced": "用于登录表单、搜索框、文件上传等场景。示例：<input type='email' name='user-email' placeholder='输入邮箱' required>，支持HTML5新增类型(date/color/number)和验证属性",
+    "expert": "底层映射为浏览器原生表单控件，不同type对应不同DOM接口(如HTMLInputElement/HTMLTextAreaElement)。现代浏览器通过Shadow DOM实现样式隔离，建议使用label关联提高可访问性，注意XSS防护避免直接输出用户输入"
+  },
+  "ins": {
+    "basic": "<ins>标签用于定义插入到文档中的文本，通常显示为带下划线的内容",
+    "intermediate": "语法为<ins>被插入文本</ins>，与<del>标签对应表示文档修改。datetime属性可记录修改时间，cite属性可引用修改原因",
+    "advanced": "适用于版本对比场景，如论文修订或代码变更记录。示例：<ins datetime='2023-01-01' cite='fix-typo'>修正拼写错误</ins>，常配合CSS设置特殊背景色",
+    "expert": "底层表现为行内元素，默认样式为text-decoration: underline。SEO中表示内容更新权重，应与<del>配对使用以保持文档语义完整性。datetime需符合ISO 8601格式，cite的URL应指向变更说明文档"
+  },
+  "kbd": {
+    "basic": "HTML键盘输入标签，用于表示用户键盘输入内容",
+    "intermediate": "语义化标签，默认显示等宽字体。语法：<kbd>内容</kbd>，常与<code>标签配合使用表示键盘快捷键组合",
+    "advanced": "主要用于技术文档中标注快捷键操作，如：按<kbd>Ctrl</kbd>+<kbd>S</kbd>保存。浏览器默认添加monospace字体和浅灰色背景样式，可通过CSS覆盖",
+    "expert": "作为语义化标签，其样式与<code>标签相似但语义不同。W3C规范建议仅用于实际键盘输入场景。现代前端框架中仍保留原生语义，但需注意与ARIA角色的配合使用以确保无障碍访问。底层渲染采用行内元素特性，默认user-select:none防止误选"
+  },
+  "label": {
+    "basic": "HTML label标签用于关联表单控件，提升可访问性和用户体验",
+    "intermediate": "通过for属性绑定对应控件的id，或直接包裹表单元素。点击label可聚焦关联控件，适用于checkbox/radio等场景",
+    "advanced": "典型应用是表单输入项标注。代码示例：<label for='username'>用户名</label><input id='username'>。移动端适配时建议使用包裹式label确保点击区域",
+    "expert": "底层通过DOM的focus()事件委托实现控件聚焦。WAI-ARIA规范要求必须显式关联，屏幕阅读器依赖这种关联读取标签文本。最佳实践是始终使用for/id绑定而非嵌套，避免表单组件结构变化导致关联失效"
+  },
+  "legend": {
+    "basic": "legend标签用于定义fieldset元素的标题，显示在边框顶部",
+    "intermediate": "语法为<legend>标题文本</legend>，必须作为fieldset的第一个子元素，支持全局属性，默认显示在左上角边框线处",
+    "advanced": "用于表单分组时提供视觉区分，常见于复杂表单的区块划分。示例：<fieldset><legend>用户信息</legend>姓名：<input type='text'></fieldset>",
+    "expert": "底层通过CSS伪元素实现定位，浏览器默认添加display:block和padding样式。最佳实践是保持简短标题，避免嵌套，可通过CSS修改位置和样式，但需注意跨浏览器兼容性问题"
+  },
+  "li": {
+    "basic": "HTML列表项标签，用于定义有序或无序列表中的单个项目",
+    "intermediate": "必须嵌套在<ul>或<ol>中使用，可包含文本/图片/链接等内联元素，支持全局属性如class/id",
+    "advanced": "典型应用：导航菜单/商品列表/步骤说明。示例：<ul><li>首页</li><li>产品</li><li>关于</li></ul>",
+    "expert": "浏览器默认添加list-style-type和margin样式，可通过CSS重置。在无障碍访问中，屏幕阅读器会播报列表项数量。DOM接口为HTMLLIElement，支持value属性控制有序列表序号"
+  },
+  "link": {
+    "basic": "HTML link标签用于链接外部资源到文档，通常用于CSS样式表或网站图标。",
+    "intermediate": "link标签必须放在head内，通过rel属性指定关系类型，href指定资源路径。常用属性包括rel、href、type、media等，支持预加载和DNS预解析。",
+    "advanced": "主要应用场景：1)引入CSS文件：<link rel='stylesheet' href='style.css'> 2)设置favicon：<link rel='icon' href='favicon.ico'> 3)预加载关键资源：<link rel='preload' href='font.woff2' as='font'>",
+    "expert": "浏览器解析link标签时会建立新的网络请求，rel=preload可强制提前加载关键资源。现代浏览器会对link资源进行优先级排序，preconnect可提前建立TCP连接。多属性组合使用时需注意资源加载顺序对页面性能的影响，如media查询适配不同设备的样式加载策略。"
+  },
+  "main": {
+    "basic": "<main>是HTML5语义化标签，表示文档主要内容区域",
+    "intermediate": "一个文档应只有一个<main>，通常包含页面的核心内容。需配合<header>/<footer>使用，不能作为后代元素出现在这些标签内",
+    "advanced": "典型场景：博客文章主体/电商商品详情。结构示例：<main><article><h1>标题</h1><p>正文内容...</p></article></main>",
+    "expert": "WAI-ARIA规范中main角色默认对应此标签，浏览器会建立可访问性树。SEO优化时，搜索引擎会优先抓取<main>内内容。应避免嵌套多个<main>导致语义混乱，现代SPA应用需动态更新时保持单例"
+  },
+  "map": {
+    "basic": "HTML <map>标签定义客户端图像映射，与<area>配合创建可点击区域",
+    "intermediate": "<map>需配合<img>使用，通过name属性关联。包含多个<area>定义形状(coords)和链接(href)，支持矩形/圆形/多边形三种区域类型",
+    "advanced": "用于图片热区导航，如电商网站商品图分区跳转。示例：<img src='planets.jpg' usemap='#planetmap'><map name='planetmap'><area shape='rect' coords='0,0,82,126' href='sun.htm'></map>",
+    "expert": "底层通过坐标映射实现，浏览器将点击事件坐标与<area>的coords进行几何匹配。性能优化需注意：复杂多边形计算开销大，移动端需考虑触控精度。现代开发更倾向使用SVG或CSS+JS方案实现类似效果"
+  },
+  "mark": {
+    "basic": "mark标签用于高亮显示文本中的特定内容",
+    "intermediate": "HTML5语义化标签，默认黄色背景。语法：<mark>高亮文本</mark>，适用于需要视觉强调的场景",
+    "advanced": "在搜索结果显示关键词高亮时使用。示例：<p>搜索结果：这是<mark>关键词</mark>的匹配内容</p>。CSS可覆盖默认样式",
+    "expert": "底层通过CSS伪元素实现高亮效果，默认应用background-color: yellow。最佳实践是与aria-label配合增强可访问性，避免滥用影响阅读流畅性。浏览器兼容性良好，但IE9以下需polyfill"
+  },
+  "menu": {
+    "basic": "<menu>定义上下文菜单或工具栏命令列表的容器元素",
+    "intermediate": "HTML5废弃元素，原用于创建弹出式菜单。现代替代方案应使用<ul>+CSS或自定义组件实现类似功能。语法为<menu><li>命令1</li></menu>",
+    "advanced": "历史用法中配合type='context'创建右键菜单，现已被废弃。示例：<menu type='context' id='filemenu'><menuitem label='新建'></menuitem></menu>。现代开发推荐使用自定义UI组件实现类似交互",
+    "expert": "该标签因缺乏标准化实现和可访问性问题被HTML5废弃。浏览器支持度差且存在替代方案。底层原理是通过DOM事件触发菜单显示，但现代框架更倾向使用语义化结构+ARIA角色实现可访问菜单。最佳实践是改用role='menu'的div结构配合JavaScript控制"
+  },
+  "meta": {
+    "basic": "HTML元数据标签，用于定义文档的元信息和配置",
+    "intermediate": "位于<head>内，通过name/content或http-equiv/content属性组合定义字符集、视口、关键词等元信息，如<meta charset='UTF-8'>",
+    "advanced": "SEO优化设置关键词和描述，移动端适配控制视口缩放。示例：<meta name='viewport' content='width=device-width, initial-scale=1.0'><meta name='description' content='页面描述文本'>",
+    "expert": "浏览器通过解析meta标签构建文档初始渲染上下文，charset定义优先于HTTP头部的编码声明。视口meta控制布局视口与可视视口的缩放比例，移动端开发必须配置。搜索引擎会缓存description内容用于摘要展示，但权重已降低。"
+  },
+  "meter": {
+    "basic": "HTML5进度条标签，用于显示标量值在已知范围内的度量值",
+    "intermediate": "语法为<meter value='当前值' min='最小值' max='最大值'>，支持low/high/optimum属性控制颜色阈值",
+    "advanced": "适用于磁盘用量、投票结果等可视化场景。示例：<meter value='65' min='0' max='100' low='30' high='80' optimum='60'>65%</meter>",
+    "expert": "底层通过CSS伪元素::-webkit-meter-*实现样式定制，实际测量值通过ARIA属性暴露给无障碍工具。最佳实践是始终提供fallback文本内容，并与progress标签区分使用场景"
+  },
+  "nav": {
+    "basic": "HTML导航链接容器标签，用于定义页面主导航区域",
+    "intermediate": "语义化标签，包含一组导航链接，通常位于页眉/页脚。语法：<nav>包含<a>等链接元素，可配合ul/li使用提升可访问性",
+    "advanced": "用于页面主要导航菜单、面包屑、分页等场景。示例：<nav><ul><li><a href='/'>首页</a></li><li><a href='/about'>关于</a></li></ul></nav>",
+    "expert": "作为HTML5语义化标签，帮助屏幕阅读器识别导航区域。浏览器会赋予默认ARIA role='navigation'。最佳实践应确保导航结构清晰，避免嵌套过多层级，移动端需考虑响应式设计"
+  },
+  "noscript": {
+    "basic": "<noscript>定义当浏览器不支持或禁用JavaScript时显示的替代内容",
+    "intermediate": "语法为<noscript>替代内容</noscript>，必须放在<body>内。当JS被禁用时显示其内容，否则忽略",
+    "advanced": "常用于优雅降级场景，例如显示JS依赖提示或基础功能替代方案。示例：<noscript><p>请启用JS以获得完整功能</p></noscript>",
+    "expert": "底层通过解析器特殊标记实现，浏览器在JS引擎初始化前预解析该标签。现代SPA中可用于SSR兼容方案，但需注意SEO可能将其视为真实内容。最佳实践是仅包含必要提示而非完整UI"
+  },
+  "object": {
+    "basic": "<object>标签用于嵌入外部资源如PDF或Flash",
+    "intermediate": "通过data属性指定资源URL，type定义MIME类型，可包含替代内容。基本语法：<object data='file.pdf' type='application/pdf'>替代文本</object>",
+    "advanced": "常用于嵌入PDF文档或旧版Flash内容。示例：<object data='presentation.swf' type='application/x-shockwave-flash' width='600' height='400'><param name='movie' value='presentation.swf'/>浏览器不支持Flash</object>",
+    "expert": "底层通过浏览器插件架构实现资源渲染，现代开发中逐渐被<iframe>和<embed>替代。安全考虑需验证资源来源，性能上建议预加载大文件，并始终提供fallback内容以增强可访问性"
+  },
+  "ol": {
+    "basic": "有序列表标签，用于展示带编号的项目序列",
+    "intermediate": "语法为<ol><li>项目1</li><li>项目2</li></ol>，支持type属性设置编号类型(1/a/A/i/I)，start属性设置起始值",
+    "advanced": "适用于步骤说明、排名展示等场景。示例：<ol type='a' start='3'><li>第三步</li><li>第四步</li></ol>表示从c开始的小写字母编号",
+    "expert": "浏览器默认通过CSS list-style-type实现编号样式，现代浏览器会为每个li生成伪元素::marker。建议优先使用CSS控制样式而非HTML属性，以保持样式与结构分离。反向列表可通过reversed属性实现，但兼容性需注意"
+  },
+  "optgroup": {
+    "basic": "<optgroup>用于在<select>中创建选项分组，通过label属性设置分组名称",
+    "intermediate": "必须嵌套在<select>中使用，包含一个label属性和多个<option>。语法：<optgroup label='分组名'><option>选项1</option></optgroup>",
+    "advanced": "适用于需要分类展示的下拉选项，如按地区分类的城市选择。示例：<select><optgroup label='北方'><option>北京</option></optgroup><optgroup label='南方'><option>广州</option></optgroup></select>",
+    "expert": "底层通过fieldset/legend的ARIA角色实现可访问性分组。最佳实践：分组不宜超过3层，移动端需注意触控区域。浏览器会为optgroup添加默认样式并禁用点击，但可通过CSS修改外观"
+  },
+  "option": {
+    "basic": "HTML select元素的下拉选项项，用于定义可选列表项",
+    "intermediate": "必须嵌套在select或datalist元素内，value属性表示提交值，selected属性设置默认选中",
+    "advanced": "表单下拉选择场景，常与label配合使用。示例：<select><option value='1'>选项1</option><option value='2' selected>选项2</option></select>",
+    "expert": "底层通过浏览器原生控件实现，value不设置时默认使用文本内容。性能优化需避免动态生成大量option，推荐虚拟滚动方案。与datalist配合可实现自动补全功能，但样式定制受浏览器限制较大"
+  },
+  "output": {
+    "basic": "HTML文档根元素，包含整个页面内容",
+    "intermediate": "作为文档容器，必须包含<head>和<body>，lang属性声明页面语言。DOCTYPE声明必须位于其前",
+    "advanced": "多语言网站开发时，通过lang属性实现SEO优化和屏幕阅读器适配。示例：<html lang='zh-CN'>。配合manifest属性可实现PWA离线缓存",
+    "expert": "浏览器解析时会将<html>作为DOM树的根节点。HTML5规范要求其作为文档唯一根元素，与XML不同。在Shadow DOM中仍保持最高层级，但可能包含多个影子DOM树。现代框架仍依赖其作为挂载点"
+  },
+  "p": {
+    "basic": "HTML段落标签，用于定义文本段落",
+    "intermediate": "双标签结构<p>内容</p>，浏览器会自动添加上下边距，支持全局属性如class/id",
+    "advanced": "文章排版场景：<p>这是第一段</p><p>这是第二段</p>。配合CSS可实现首行缩进：p { text-indent: 2em }",
+    "expert": "浏览器渲染时会将<p>转换为块级盒模型，默认带有16px上下margin。语义上表示逻辑段落，屏幕阅读器会识别为段落停顿。HTML5规范要求<p>不能嵌套，且不能包含块级元素"
+  },
+  "picture": {
+    "basic": "HTML5的<picture>元素用于响应式图片加载，根据设备条件选择不同图像源",
+    "intermediate": "语法结构包含<source>子元素和必选的<img>后备标签，通过media/sizes/srcset属性匹配条件，浏览器自动选择最佳图像源",
+    "advanced": "适用于艺术方向(art direction)和分辨率切换场景，如不同视口显示裁切版本，高清屏加载2x图片。示例：<picture><source media='(min-width: 800px)' srcset='large.jpg'><source media='(min-width: 400px)' srcset='medium.jpg'><img src='small.jpg'></picture>",
+    "expert": "底层实现基于浏览器环境检测和资源预加载机制，解析时会先检查<source>条件，匹配则中断后续请求。最佳实践需配合现代图像格式(WebP/AVIF)和懒加载，注意与srcset属性的区别：picture处理完全不同的图像(art direction)，而srcset处理同一图像的不同分辨率版本"
+  },
+  "pre": {
+    "basic": "HTML预格式化标签，保留文本中的空格和换行",
+    "intermediate": "使用<pre>标签包裹需要保持原始格式的文本，浏览器会以等宽字体显示并保留所有空白字符",
+    "advanced": "常用于显示代码片段、ASCII艺术或需要精确对齐的文本。示例：<pre>function test() {\n  console.log('Hello');\n}</pre>",
+    "expert": "浏览器会将<pre>内容视为预格式化文本，不进行HTML解析和空白折叠。CSS默认设置white-space:pre，需注意内容溢出时需手动处理，建议配合<code>标签使用增强语义"
+  },
+  "progress": {
+    "basic": "progress标签用于显示任务的完成进度，是HTML5新增的元素。",
+    "intermediate": "progress标签包含value(当前值)和max(最大值)两个属性，默认显示为进度条样式。基本语法：<progress value='70' max='100'></progress>",
+    "advanced": "常用于文件上传、表单填写等需要显示进度的场景。示例：文件上传时动态更新进度：document.getElementById('uploadProgress').value = loadedBytes / totalBytes * 100",
+    "expert": "底层通过浏览器原生UI组件实现，不同浏览器渲染样式可能不同。最佳实践是配合JS动态更新value值，并添加ARIA属性增强可访问性。现代前端框架中应避免直接操作DOM，而是通过状态管理更新进度值。"
+  },
+  "q": {
+    "basic": "<q>标签用于定义短的行内引用，浏览器通常会自动添加引号",
+    "intermediate": "语法为<q cite=\"来源URL\">引用内容</q>，cite属性可选用于标明引用来源。与<blockquote>的区别在于它是行内元素而非块级元素",
+    "advanced": "适用于文章中的短句引用场景，如论文中的文献引用。示例：<p>正如<q cite=\"https://example.com\">前端开发需要语义化</q>这句话所述</p>",
+    "expert": "底层通过CSS伪元素::before和::after自动添加引号，不同语言环境引号样式不同。最佳实践是重要引用应配合<cite>标签说明来源，对于长引用建议使用<blockquote>以保证可访问性"
+  },
+  "rp": {
+    "basic": "<rp>标签用于在不支持ruby注释的浏览器中显示替代内容",
+    "intermediate": "<rp>必须作为<ruby>的子元素，与<rt>配合使用，语法：<ruby>基字<rp>(</rp><rt>注音</rt><rp>)</rp></ruby>",
+    "advanced": "主要用于东亚文字注音场景，当浏览器不支持ruby时显示括号包裹的注音。示例：<ruby>漢<rp>(</rp><rt>han</rt><rp>)</rp></ruby>会显示为'漢(han)'",
+    "expert": "作为ruby注解的降级方案，其设计遵循HTML5的渐进增强原则。现代浏览器会忽略<rp>内容，而旧版浏览器会将其作为fallback显示。最佳实践是始终包含<rp>以确保兼容性，特别是在多语言场景中"
+  },
+  "rt": {
+    "basic": "<rt>标签用于在<ruby>中定义字符的发音注解",
+    "intermediate": "必须作为<ruby>的子元素使用，位于<rp>或文本后，语法：<ruby>汉<rt>hàn</rt>字</ruby>",
+    "advanced": "主要用于东亚文字注音场景，如日文假名或中文拼音标注。示例：<ruby>東京<rt>とうきょう</rt></ruby>会显示汉字上方有小字号假名注音",
+    "expert": "浏览器通过CSS ruby-position属性控制<rt>显示位置，默认在上方。现代浏览器采用CSS Ruby Layout Module规范实现，需注意旧版IE兼容性问题。最佳实践是始终包含<rp>标签作为回退方案"
+  },
+  "ruby": {
+    "basic": "HTML5的<ruby>标签用于为东亚文字添加注音或注释",
+    "intermediate": "<ruby>标签需配合<rt>使用，<rt>包含注音内容，可选的<rp>为不支持ruby的浏览器提供后备显示",
+    "advanced": "主要用于汉字注音场景，如日文汉字标注假名或中文生僻字注音。示例：<ruby>漢<rt>かん</rt>字<rt>じ</rt></ruby>会显示汉字上方有小字假名标注",
+    "expert": "通过CSS伪元素实现注音上标效果，现代浏览器已原生支持。最佳实践应始终包含<rp>兼容旧浏览器，注音文本需保持语义化且与主文本关联，WCAG建议注音字号应为基准字号的50%-70%"
+  },
+  "s": {
+    "basic": "<s>是HTML中的删除线标签，用于表示已删除的文本内容",
+    "intermediate": "<s>标签在HTML5中定义，用于呈现不再准确或相关的文本。语法为<s>被删除文本</s>，浏览器默认会添加删除线样式",
+    "advanced": "适用于电商网站显示原价、文档修订记录等场景。示例：<p>现价：299 <s>原价：599</s></p>。注意HTML5推荐用<del>表示文档删除，<s>仅用于样式删除",
+    "expert": "<s>标签的删除线效果通过浏览器默认CSS text-decoration: line-through实现。与<del>不同，<s>不携带语义信息，仅表示视觉删除。在无障碍访问中，屏幕阅读器不会特别处理<s>内容，因此重要删除信息应配合aria-label使用"
+  },
+  "samp": {
+    "basic": "<samp>标签用于表示计算机程序输出样本，是HTML内联语义元素",
+    "intermediate": "语法为<samp>示例文本</samp>，默认显示为等宽字体。常与<code>配合使用，表示程序运行输出结果而非源代码",
+    "advanced": "主要应用在技术文档中展示命令行输出或程序运行结果。例如：<samp>Error 404: File not found</samp>。与<kbd>标签组合可构建交互式教程：用户<kbd>输入</kbd> → 系统<samp>响应</samp>",
+    "expert": "底层通过CSS的font-family: monospace实现等宽效果。语义上区别于<code>（表示源代码）和<pre>（保留格式的块级元素）。SEO中会被识别为技术内容标记，现代浏览器默认样式为user-agent stylesheet定义的monospace字体，可通过CSS自定义外观但需保持可读性"
+  },
+  "script": {
+    "basic": "HTML script标签用于嵌入或引用可执行脚本，通常为JavaScript代码",
+    "intermediate": "script标签可放在head或body中，通过src属性引用外部脚本，或直接在标签内编写代码。type属性默认为text/javascript，async/defer控制加载行为",
+    "advanced": "用于页面交互逻辑、动态内容加载和第三方库引入。示例：<script src='app.js'></script> 或 <script>alert('Hello')</script>。现代开发常配合模块化使用",
+    "expert": "浏览器解析遇到script会暂停HTML解析执行脚本。defer使脚本在DOM解析后执行，async允许异步加载。现代SPA框架利用script动态加载实现路由和组件懒加载，需注意跨域安全和性能优化"
+  },
+  "section": {
+    "basic": "HTML5语义化标签，用于定义文档中的章节内容",
+    "intermediate": "语法为<section>内容</section>，通常包含标题(h1-h6)和段落，表示文档中独立的内容区块",
+    "advanced": "适用于文章章节、标签页内容区等场景。示例：<section><h2>章节标题</h2><p>这是章节正文内容</p></section>",
+    "expert": "section元素在文档大纲算法中会创建新的章节节点，需配合heading元素使用。与article的区别在于：section是主题性分组，article是独立可分发内容。WAI-ARIA中默认role='region'，应确保每个section都有可访问的名称"
+  },
+  "select": {
+    "basic": "HTML select元素创建下拉选择列表，允许用户从预定义选项中选择一个或多个值。",
+    "intermediate": "select标签需配合option子元素使用，name属性指定表单字段名，multiple属性允许多选。disabled属性可禁用整个选择框。",
+    "advanced": "常用于表单中的分类选择、地区选择等场景。基础代码结构：<select name='city'><option value='1'>北京</option><option value='2'>上海</option></select>。可通过size属性控制可见行数。",
+    "expert": "浏览器将select渲染为复合控件，包含按钮和下拉面板。多选时采用Ctrl/Shift键组合选择。性能优化建议：超过100个选项时应使用虚拟滚动。与datalist不同，select要求预定义所有选项而非动态建议。现代框架通常封装为可控组件处理值变更事件。"
+  },
+  "small": {
+    "basic": "small标签用于定义小号字体文本，通常用于免责声明或注释内容",
+    "intermediate": "HTML5语义化标签，默认显示为更小字号。语法为<small>内容</small>，可嵌套在其他元素内表示附属信息",
+    "advanced": "适用于版权声明、法律条款等次要信息。示例：<footer><small>© 2023 公司名称 保留所有权利</small></footer>。注意不要滥用，重要内容不应使用",
+    "expert": "底层通过CSS font-size属性实现(通常为父元素的80%)。现代开发中建议优先使用CSS控制样式，仅在语义需要时使用。SEO中会被识别为次要内容，不影响主要关键词权重"
+  },
+  "source": {
+    "basic": "HTML的<source>标签用于为<audio>/<video>元素指定多个媒体资源",
+    "intermediate": "必须嵌套在<audio>或<video>中，通过src属性指定资源路径，type属性声明MIME类型，支持多源回退机制",
+    "advanced": "实现跨浏览器兼容时常用：<video><source src='video.mp4' type='video/mp4'><source src='video.webm' type='video/webm'></video>。现代浏览器会优先加载第一个支持的格式",
+    "expert": "底层通过canPlayType()方法检测格式支持，遵循HTTP内容协商机制。最佳实践应包含MP4(通用)+WebM(高效)双格式，type属性可减少不必要的网络请求。移动端需注意编码格式兼容性"
+  },
+  "span": {
+    "basic": "HTML行内容器标签，用于包裹文本或内联元素进行样式或脚本控制",
+    "intermediate": "语法为<span>内容</span>，作为通用行内容器，常配合class/id属性实现CSS样式控制或JavaScript操作，不产生额外换行",
+    "advanced": "典型应用包括：1)文本局部样式控制<span class='highlight'>高亮文字</span>；2)配合伪元素实现图标<span class='icon'></span>；3)JS动态操作DOM节点document.querySelector('span').style.color='red'",
+    "expert": "作为行内元素默认display:inline，不形成独立BFC。浏览器渲染时会创建匿名行内盒子包裹文本节点，其盒模型只包含content+padding+border，margin垂直方向无效。性能优化建议避免深层嵌套，大数据量时考虑虚拟滚动减少DOM节点"
+  },
+  "strong": {
+    "basic": "HTML强调文本标签，浏览器默认以加粗样式呈现",
+    "intermediate": "语义化标签表示重要内容，可嵌套使用但不建议替代CSS样式控制。语法：<strong>强调文本</strong>",
+    "advanced": "适用于需要语义化强调的关键词/警告信息。与em标签区别：strong表示重要性，em表示语气强调。示例：<p>操作前请<strong>备份</strong>数据</p>",
+    "expert": "底层通过加粗样式实现视觉强调，但本质是语义化标签。SEO中权重高于普通文本，但滥用会被搜索引擎惩罚。最佳实践：仅对真正重要的短语使用，避免嵌套多层strong标签影响可访问性"
+  },
+  "style": {
+    "basic": "<style>标签用于在HTML文档中定义内部CSS样式",
+    "intermediate": "需放在<head>内，通过type='text/css'指定样式类型，支持媒体查询属性media，可包含选择器和样式声明",
+    "advanced": "适用于页面定制样式或小规模项目，避免外部文件请求。示例：<style>body{background:#fff}@media print{.no-print{display:none}}</style>",
+    "expert": "浏览器解析时创建CSSOM树，与DOM树合并形成渲染树。内联样式会阻塞渲染，建议关键CSS内联。Scoped属性已被废弃，现用CSS Modules或Shadow DOM实现样式隔离。性能优化需注意选择器复杂度和避免@import"
+  },
+  "sub": {
+    "basic": "<sub>标签定义下标文本，用于化学式或数学表达式",
+    "intermediate": "语法：<sub>下标内容</sub>。与<sup>上标对应，默认样式为基线下方小字号显示，可通过CSS覆盖样式",
+    "advanced": "应用场景：1.化学式如H<sub>2</sub>O 2.数学变量如x<sub>n</sub> 3.脚注编号。代码示例：<p>二氧化碳化学式: CO<sub>2</sub></p>",
+    "expert": "原理：<sub>是语义化标签，浏览器默认添加vertical-align: sub样式。最佳实践：1.优先使用语义化标签而非CSS模拟 2.复杂排版需配合vertical-align调整 3.屏幕阅读器会识别为下标角色。与MathML公式标签的区别在于仅适用于简单下标场景"
+  },
+  "summary": {
+    "basic": "<summary>是HTML5的详情摘要标签，用于包裹<details>的可视标题",
+    "intermediate": "必须与<details>配合使用，点击summary内容可切换details的展开/折叠状态。语法：<details><summary>标题</summary>内容</details>",
+    "advanced": "常见于FAQ、折叠菜单等场景。示例：<details><summary>点击查看答案</summary><p>这里是隐藏的详细解答内容</p></details>。支持CSS样式定制箭头图标",
+    "expert": "底层通过open属性控制状态，默认使用disclosure-triangle系统图标。现代浏览器通过伪元素::-webkit-details-marker实现箭头，可通过display:none隐藏后自定义样式。注意无障碍需保持键盘操作支持"
+  },
+  "sup": {
+    "basic": "<sup>标签定义上标文本，常用于脚注或数学公式",
+    "intermediate": "语法为<sup>上标内容</sup>，是行内元素。默认样式为vertical-align: super和较小字号，可通过CSS覆盖",
+    "advanced": "典型场景：化学式H<sub>2</sub>O<sup>TM</sup>、数学幂次x<sup>2</sup>、版权符号®<sup>1</sup>。代码示例：<p>Einstein公式E=mc<sup>2</sup></p>",
+    "expert": "底层通过改变基线位置和字号实现上标效果。与CSS的vertical-align: super等效，但语义更明确。注意：不应滥用样式替代，在数学/科学场景优先使用MathML。浏览器默认样式可能包含position: relative和top: -0.5em等属性"
+  },
+  "table": {
+    "basic": "HTML表格容器标签，用于结构化展示行列数据",
+    "intermediate": "由<table>包裹<tr>行、<td>单元格组成，支持<thead>/<tbody>分组，常用border/cellpadding属性控制样式",
+    "advanced": "适用于数据报表、价格对比等场景。示例：<table><tr><td>姓名</td><td>年龄</td></tr><tr><td>张三</td><td>25</td></tr></table>",
+    "expert": "浏览器解析时会构建表格布局上下文，默认display:table触发特定渲染模式。现代开发建议用CSS Grid替代复杂表格布局，但基础数据展示仍依赖原生<table>语义化结构"
+  },
+  "tbody": {
+    "basic": "HTML表格主体容器，用于包裹表格数据行",
+    "intermediate": "必须作为table的子元素，与thead/tfoot配合使用。包含一个或多个tr元素，每个tr代表一行数据",
+    "advanced": "适用于动态生成表格数据的场景。示例：<tbody><tr><td>数据1</td></tr><tr><td>数据2</td></tr></tbody>",
+    "expert": "浏览器渲染时会为tbody创建独立的渲染层，与thead分开处理。大数据量时建议分多个tbody优化渲染性能，避免重排。DOM操作时tbody比直接操作table有更好的性能表现"
+  },
+  "td": {
+    "basic": "HTML表格数据单元格标签，用于定义表格中的标准数据单元",
+    "intermediate": "必须嵌套在<tr>标签内使用，可包含文本/图像等任意内容，常用属性有colspan/rowspan控制单元格合并",
+    "advanced": "典型应用场景：数据报表展示。示例：<table><tr><td>姓名</td><td>年龄</td></tr><tr><td>张三</td><td>25</td></tr></table>",
+    "expert": "底层渲染为CSS display:table-cell元素，浏览器会自动计算单元格尺寸。最佳实践：避免嵌套复杂结构，大数据量时建议使用虚拟滚动技术优化性能，合并单元格时需注意跨行跨列计算的性能损耗"
+  },
+  "template": {
+    "basic": "HTML5的<template>标签用于声明可复用的HTML模板片段，内容不会立即渲染",
+    "intermediate": "通过DOM操作可克隆模板内容，语法为<template id='tpl'>...</template>，配合document.importNode()或cloneNode()使用",
+    "advanced": "适用于动态生成重复结构的场景，如列表项。示例：const template = document.querySelector('#itemTpl'); const clone = template.content.cloneNode(true); list.appendChild(clone);",
+    "expert": "模板内容存储在DocumentFragment中，解析但不渲染。浏览器会预处理但延迟执行脚本，通过content属性访问片段。性能优于字符串拼接，与Shadow DOM配合可实现组件化"
+  },
+  "textarea": {
+    "basic": "HTML文本输入区域标签，支持多行纯文本输入",
+    "intermediate": "语法：<textarea rows='4' cols='50'>默认文本</textarea>，常用属性包括rows(行数)、cols(列数)、placeholder(提示文本)和disabled(禁用)",
+    "advanced": "适用于表单中的长文本输入场景，如评论框、地址栏等。示例：<form><textarea name='feedback' rows='5' placeholder='请输入反馈意见'></textarea><button>提交</button></form>",
+    "expert": "底层实现为可替换元素(replaced element)，浏览器会创建独立渲染层。最佳实践包括：使用CSS控制resize行为，配合maxlength限制输入长度，移动端需注意虚拟键盘适配问题。与contenteditable的区别在于仅支持纯文本且更易控制输入格式"
+  },
+  "tfoot": {
+    "basic": "HTML表格页脚容器，用于包含表格的汇总行或脚注内容",
+    "intermediate": "必须作为<table>的直接子元素，位于<tbody>之后，可包含<tr>定义汇总行。支持全局属性，与<thead>形成语义化结构",
+    "advanced": "适用于财务表格总计行、数据报表统计栏等场景。示例：<table><thead>...</thead><tbody>...</tbody><tfoot><tr><td colspan='3'>合计</td><td>1000</td></tr></tfoot></table>",
+    "expert": "浏览器渲染时会优先处理<tfoot>以保证在内容过长时页脚可见，与<thead>形成固定区域。W3C规范要求其位置可位于<tbody>前但显示在底部，CSS样式继承自<table>但允许单独定制，在打印时能实现每页重复显示表脚功能"
+  },
+  "th": {
+    "basic": "HTML表格表头单元格标签，用于定义表格中的标题单元格",
+    "intermediate": "th标签必须包含在tr标签内，默认加粗居中显示。可通过scope属性指定关联范围(row/col/rowgroup/colgroup)",
+    "advanced": "用于数据表格的列/行标题，增强可访问性。示例：<table><tr><th scope='col'>姓名</th><th scope='col'>年龄</th></tr><tr><td>张三</td><td>25</td></tr></table>",
+    "expert": "th元素在DOM中表现为HTMLTableCellElement对象，与td共享相同接口但具有语义差异。屏幕阅读器会识别th作为标题单元格，W3C规范要求数据表格必须使用th提供上下文信息。最佳实践是始终配合scope/headers属性明确关联关系"
+  },
+  "thead": {
+    "basic": "HTML表格头部容器标签，用于包裹表头行(<tr>)元素",
+    "intermediate": "必须作为<table>的直接子元素，位于<tbody>之前。包含一个或多个<tr>，通常配合<th>定义列标题。支持全局属性，无特有属性。",
+    "advanced": "用于数据表格的列标题区域，提升可访问性和语义化。示例：<table><thead><tr><th>姓名</th><th>年龄</th></tr></thead><tbody>...</tbody></table>",
+    "expert": "浏览器会优先渲染thead内容，与tbody分块解析提升性能。打印时自动重复显示在多页表格顶部。ARIA角色默认为rowgroup，需确保包含至少一个tr/th组合以维持语义完整性。与colgroup配合可实现复杂表头样式控制。"
+  },
+  "time": {
+    "basic": "HTML5时间语义化标签，用于表示日期/时间信息",
+    "intermediate": "语法为<time datetime=\"YYYY-MM-DD\">显示文本</time>，datetime属性提供机器可读格式，内容为人类可读格式",
+    "advanced": "用于博客发布时间、活动日期等场景。示例：<time datetime=\"2023-10-05T14:30\">10月5日下午2:30</time>，支持带时区的ISO8601格式",
+    "expert": "底层通过datetime属性实现机器可读(time元素本身无特殊样式)，搜索引擎和辅助技术可识别。最佳实践是始终包含datetime属性，复杂日期使用ISO8601格式，简单日期可直接写在标签内容中。与微格式兼容，可增强SEO"
+  },
+  "title": {
+    "basic": "HTML文档标题标签，定义浏览器标签页显示的标题内容",
+    "intermediate": "位于<head>内且必须包含文本内容，SEO关键元素。语法：<title>网页标题</title>，每个页面应唯一",
+    "advanced": "用于浏览器历史记录/书签命名，搜索引擎结果展示。示例：<title>京东-正品低价、品质保障</title>。移动端会截断过长的标题",
+    "expert": "浏览器解析时创建DOM树中的HTMLTitleElement对象，通过document.title可动态修改。搜索引擎将标题作为重要排名因素，建议长度30-60字符，包含关键词但避免堆砌"
+  },
+  "tr": {
+    "basic": "HTML表格行标签，用于定义表格中的一行数据",
+    "intermediate": "必须包含在<table>标签内，可嵌套<th>或<td>单元格。常用属性包括align/valign控制对齐方式，bgcolor设置背景色（已废弃）",
+    "advanced": "典型应用场景：数据表格展示。示例：<tr><td>姓名</td><td>年龄</td></tr>。现代开发中建议用CSS替代bgcolor等样式属性，通过:nth-child()伪类实现斑马纹效果",
+    "expert": "浏览器渲染时会创建匿名表格对象确保结构完整。DOM接口为HTMLTableRowElement，具有rowIndex/cells等属性。性能优化：避免嵌套过深，大数据量时考虑虚拟滚动。与Web组件结合时需注意shadow DOM内的样式隔离问题"
+  },
+  "track": {
+    "basic": "<track>是HTML5媒体元素的字幕轨道容器，用于指定定时文本轨道",
+    "intermediate": "作为<audio>/<video>的子元素，通过src属性指定.vtt字幕文件，kind属性定义轨道类型(subtitles/captions等)，srclang设置语言",
+    "advanced": "用于视频字幕/章节导航：<video><track kind='subtitles' src='cn.vtt' srclang='zh' label='中文'>。WebVTT格式示例：WEBVTT\n00:00:01.000 --> 00:00:05.000\n这是第一行字幕文本",
+    "expert": "底层通过TextTrack API实现，浏览器会创建对应的TextTrack对象。最佳实践包括：1) 提供默认轨道 2) 多语言轨道需设置srclang 3) 动态加载轨道需监听cuechange事件 4) 性能优化需注意VTT文件大小和分段加载"
+  },
+  "u": {
+    "basic": "<u>标签用于为文本添加下划线效果",
+    "intermediate": "HTML语义化标签，语法为<u>被标注文本</u>。在HTML5中表示非文本注释（如拼写错误），替代了纯样式的<strike>标签",
+    "advanced": "适用于标注需要特别关注的文本或拼写错误。示例：<p>这段包含<u>下划线</u>的文字需要特别注意</p>。现代开发建议用CSS的text-decoration:underline替代",
+    "expert": "底层通过浏览器默认样式实现，具有user agent stylesheet定义的text-decoration:underline。在可访问性方面，屏幕阅读器可能不会特别提示，建议配合aria-label使用。HTML5规范明确其语义为标注非常规文本（如中文专名线），而非纯视觉修饰"
+  },
+  "ul": {
+    "basic": "ul是无序列表的HTML标签，用于包裹多个li列表项",
+    "intermediate": "ul标签必须与li标签配合使用，默认显示为带项目符号的列表。可通过CSS修改列表样式，语法：<ul><li>项目1</li><li>项目2</li></ul>",
+    "advanced": "常用于导航菜单、商品列表等场景。示例：<ul class='menu'><li><a href='/'>首页</a></li><li><a href='/about'>关于</a></li></ul> 可通过CSS设置横向排列或自定义符号",
+    "expert": "ul在浏览器中默认生成block级框，带有margin和padding。现代浏览器将其渲染为display:block; list-style-type:disc。性能优化建议：避免深层嵌套，大数据列表应使用虚拟滚动。ARIA角色默认为list，li为listitem，对屏幕阅读器友好"
+  },
+  "var": {
+    "basic": "HTML变量标记，表示数学表达式或程序中的变量名",
+    "intermediate": "语义化标签，用于标识变量或占位符内容，默认斜体显示。语法：<var>变量名</var>，常与<code>配合使用",
+    "advanced": "在技术文档中标记变量名或数学符号。示例：方程中的变量<var>x</var> = <var>y</var> + 2。与CSS配合可自定义样式：var { font-style: normal; color: blue; }",
+    "expert": "作为语义化标签，不直接提供样式功能，其斜体效果由浏览器默认样式表定义。与<em>不同，<var>专门表示计算机上下文中的变量概念。SEO中会被识别为技术术语标记，建议在公式推导、代码注释等场景使用"
+  },
+  "video": {
+    "basic": "HTML5视频嵌入标签，支持MP4/WebM/Ogg格式",
+    "intermediate": "通过src属性指定视频源，controls属性显示播放控件，支持width/height设置尺寸。常用属性包括autoplay、loop和muted",
+    "advanced": "用于网页视频播放、背景视频等场景。示例：<video src='demo.mp4' controls width='600' poster='preview.jpg'>您的浏览器不支持video标签</video>。可通过JS API实现自定义控制",
+    "expert": "底层使用浏览器媒体引擎解码，MP4采用H.264编码需专利授权。最佳实践应提供多格式兼容方案，移动端需考虑流量优化。预加载策略涉及buffered属性监控，性能优化需注意解码器兼容性和硬件加速支持"
+  },
+  "wbr": {
+    "basic": "<wbr>是HTML中的可选换行机会标签，用于指定单词内可换行位置",
+    "intermediate": "在长单词或URL中插入<wbr>标签，浏览器会在该位置优先换行。无视觉表现，仅作为排版提示。语法：<span>example<wbr>domain.com</span>",
+    "advanced": "适用于长URL、复合词等场景。当容器宽度不足时，浏览器会在<wbr>处换行。示例：<p>https://<wbr>example<wbr>.com/<wbr>path</p> 渲染时可能分成多行显示",
+    "expert": "<wbr>创建软换行机会(Word Break Opportunity)，不影响文本语义。与&shy;不同，它不添加连字符。现代浏览器将其视为零宽度空格，在CSS中可通过word-break: break-all强制换行，但<wbr>提供更精确控制。对SEO无影响，属于纯展示性标签"
+  }
+}
